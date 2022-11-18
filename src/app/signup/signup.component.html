@@ -9,19 +9,13 @@
                   <div class="p-5">
                     <h3 class="fw-normal mb-5" style="color: #4835d4;">General Infomation</h3>
   
-                    <!-- <div class="mb-4 pb-2">
-                      <select class="select">
-                        <option value="1">Title</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                        <option value="4">Four</option>
-                      </select>
-                    </div> -->
+                    
                     
                     <div class="mb-4 pb-2">
                         <div class="alert alert-danger form-control" *ngIf="shopname.touched && shopname.invalid" >Shop name Required</div>
                         <div class="form-outline">
-                          <input type="text" id="form3Examplev4" class="form-control form-control-lg" name="shopname" 
+                          <input type="text" id="form3Examplev4" class="form-control form-control-lg"
+                          placeholder="Enter your shop name here.." name="shopname" 
                           required ngModel #shopname="ngModel" />
                           <label class="form-label" for="form3Examplev4">Shop Name</label>
                         </div>
@@ -66,8 +60,8 @@
                       <div class="col-md-6 mb-4 pb-2 mb-md-0 pb-md-0">
   
                         <div class="form-outline">
-                          <div class="alert alert-danger form-control" *ngIf="password.touched && password.invalid" >Password Required </div>
-                          <div class="alert alert-danger form-control" *ngIf="password.errors?.['minlength'] && password.invalid" >Password must contain Atleast 6 Charecters..</div>
+                          <div class="alert alert-danger form-control" *ngIf="(password.touched && password.invalid) || (password.errors?.['minlength'] && password.invalid)" >Password Required Or must contain Atleast 6 Charecters.. </div>
+                          <!-- <div class="alert alert-danger form-control" *ngIf="password.errors?.['minlength'] && password.invalid" >Password must contain Atleast 6 Charecters..</div> -->
 
                           <input type="password" id="form3Examplev5" class="form-control form-control-lg" name="password" 
                           required minlength="6" ngModel #password="ngModel" />
@@ -76,9 +70,11 @@
   
                       </div>
                       <div class="col-md-6 mb-4 pb-2 mb-md-0 pb-md-0">
-  
+                        
                         <div class="form-outline">
-                          <input type="password" id="form3Examplev5" class="form-control form-control-lg" />
+                          <div class="alert alert-danger form-control" *ngIf="confirmPassword.invalid && confirmPassword.touched">Password Must be Same</div>
+                          <input type="password" id="form3Examplev5" class="form-control form-control-lg" required name="confirmPassword" 
+                          ngModel #confirmPassword="ngModel" />
                           <label class="form-label" for="form3Examplev5">Confirm Password</label>
                         </div>
   
@@ -112,19 +108,25 @@
                   </div>
                 </div>
                 <div class="col-lg-6 bg-indigo text-white">
+                
                   <div class="p-5">
                     <h3 class="fw-normal mb-5">Delivery Pickup Details</h3>
   
                     <div class="mb-4 pb-2">
                       <div class="form-outline form-white">
-                        <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
+                        <div class="alert alert-danger" *ngIf="address.touched&&address.invalid">Address is Required </div>
+                        <input type="text" id="form3Examplea2" placeholder="Enter your full Address" class="form-control form-control-lg" name="address" required ngModel #address="ngModel" />
                         <label class="form-label" for="form3Examplea2">Full Address</label>
                       </div>
                     </div>
   
                     <div class="mb-4 pb-2">
                       <div class="form-outline form-white">
-                        <input type="text" id="form3Examplea3" class="form-control form-control-lg" />
+                        <div class="alert alert-danger" *ngIf="landmark.touched&&landmark.invalid">Landmark Required For Efficient Delivery</div>
+                        <input type="text" id="form3Examplea3" class="form-control form-control-lg" 
+                        placeholder="Enter Landmark Near By You"
+                        name="landmark" 
+                        required ngModel #landmark="ngModel" />
                         <label class="form-label" for="form3Examplea3">Land Mark Near By You</label>
                       </div>
                     </div>
@@ -167,7 +169,11 @@
                       <div class="col-md-7 mb-4 pb-2">
   
                         <div class="form-outline form-white">
-                          <input type="text" id="form3Examplea8" class="form-control form-control-lg" />
+                          <div class="alert alert-danger" *ngIf="(phone.touched && phone.invalid) || (phone.errors?.['minlength']&& phone.invalid )"> 
+                            PhoneNumber required And its must contain exact 10 digits
+                          </div>
+                          <input type="tel" id="form3Examplea8" class="form-control form-control-lg" pattern="[0-9]{10}" 
+                          required name="phone" ngModel #phone="ngModel"  minlength="10" maxlength="10" />
                           <label class="form-label" for="form3Examplea8">Phone Number</label>
                         </div>
   
@@ -176,7 +182,9 @@
   
                     <div class="mb-4">
                       <div class="form-outline form-white">
-                        <input type="text" id="form3Examplea9" class="form-control form-control-lg" />
+                        <div class="alert alert-danger" *ngIf="email.invalid && email.touched"> Email Reqiured </div>
+                        <input type="email" id="form3Examplea9" class="form-control form-control-lg" name="email" placeholder="me@gmail.com" 
+                        required ngModel #email="ngModel"/>
                         <label class="form-label" for="form3Examplea9">Your Email</label>
                       </div>
                     </div>
@@ -190,9 +198,11 @@
                     </div>
   
                     <button type="button" class="btn btn-light btn-lg m-auto"
-                      data-mdb-ripple-color="dark" style="background-Color:orange">Create Account</button>
+                      data-mdb-ripple-color="dark" style="background-Color:orange"
+                      [disabled]="email.invalid || phone.invalid || landmark.invalid || address.invalid|| password.invalid || username.invalid ">Create Account</button>
   
                   </div>
+                
                 </div>
               </div>
             </div>
