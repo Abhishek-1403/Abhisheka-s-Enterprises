@@ -23,6 +23,43 @@ export class HomeComponent implements OnInit {
 //   filter: dataFilter
 // });
 
+  itemValue0=0;
+  itemValue1=0;
+  itemValue2=0;
+  itemValue3=0;
+  itemValue4=0;
+  
+
+  onClickAdd0(){
+    this.itemValue0=this.itemValue0+1;
+  }
+  onClickSub0(){
+    this.itemValue0=this.itemValue0-1;
+  }
+  onClickAdd1(){
+    this.itemValue1=this.itemValue1+1;
+  }
+  onClickSub1(){
+    this.itemValue1=this.itemValue1-1;
+  }
+  onClickAdd2(){
+    this.itemValue2=this.itemValue2+1;
+  }
+  onClickSub2(){
+    this.itemValue2=this.itemValue2-1;
+  }
+  onClickAdd3(){
+    this.itemValue3=this.itemValue3+1;
+  }
+  onClickSub3(){
+    this.itemValue3=this.itemValue3-1;
+  }
+  onClickAdd4(){
+    this.itemValue4=this.itemValue4+1;
+  }
+  onClickSub4(){
+    this.itemValue4=this.itemValue4-1;
+  }
 
   constructor() { }
 

@@ -2,9 +2,14 @@ nav{
     width: 100%;
     display:flex;
     font-size: 24px;
+    flex-wrap: wrap;
     padding: 5px;
     justify-content: space-between;
     
+}
+.dec{
+    display: flex;
+    flex-wrap: wrap
 }
 li{
     padding: 0 1rem;
