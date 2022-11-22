@@ -1,168 +1,320 @@
-
-<nav class="justify-content-center " style="background-color:rgba(255, 255, 0, 0.699); min-width: 100rem">
-    <ul style="background-color:pink ;">
-        <div class="row ">
-            <div class="column ">
-                <li>
-                    <img [src]=" urlLeftSide" alt="Happy to see You Here" height="200" width="450">
-                </li>
-            </div>
-            <div class="column2">
-                <li>
-                    <img [src]="urlNavBackGround" alt="Welcome In Abhisheka's Enterprises" height="200" width="900">
-                </li>
-            </div>
-            <div class="column">
-                <li>
-                    <img [src]=" urlRightSide" alt="Happy to see You Here" height="200" width="450">
-                </li>
-            </div>
-        </div>
-
-    </ul>
+<nav
+  class="justify-content-center"
+  style="background-color: rgba(255, 255, 0, 0.699); min-width: 100rem"
+>
+  <ul style="background-color: pink">
+    <div class="row">
+      <div class="column">
+        <li>
+          <img
+            [src]="urlLeftSide"
+            alt="Happy to see You Here"
+            height="200"
+            width="450"
+          />
+        </li>
+      </div>
+      <div class="column2">
+        <li>
+          <img
+            [src]="urlNavBackGround"
+            alt="Welcome In Abhisheka's Enterprises"
+            height="200"
+            width="900"
+          />
+        </li>
+      </div>
+      <div class="column">
+        <li>
+          <img
+            [src]="urlRightSide"
+            alt="Happy to see You Here"
+            height="200"
+            width="450"
+          />
+        </li>
+      </div>
+    </div>
+  </ul>
 </nav>
 
-<form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
-    <input type="text" placeholder="Search.." name="search2">
-    <button type="submit"><i class="fa fa-search">Search</i></button>
+<form
+  class="example"
+  action="/action_page.php"
+  style="margin: auto; max-width: 700px"
+>
+  <div class="flex justify-content-center">
+    <input
+      type="text"
+      placeholder="Search.."
+      name="search2"
+      style="width: 22vw;height: 52px;"
+    />
+
+    <button type="submit">
+      <fa-icon
+        style="font-size: 20px"
+        [icon]="faSearchengin"
+        class=""
+      ></fa-icon>
+    </button>
+  </div>
 </form>
-<div class="container row  justify-content-center m-auto">
-    <div class="card mx-4 mt-5 " style="width: 18rem;">
-        <img src="https://shop.unicornstore.in/uploads/images/medium/34e6957bed83de93e7dc296ab0ede5c6.png"
-            class="card-img-top" alt="Some issue Occur">
-        <div class="card-body">
-            <h3 class="card-title">IPhone 13 Pro
-                128GB(Gold)
-            </h3>
-            <h5>In Just Rs. 144415 </h5>
-            <p class="card-text">To Achive Your goals you need a secure partner that is here..
-                A person who "Think Different" with others can only live the different life.</p>
-            <div class="row">
-                <h4 style="color: green;">
-                    Add to cart
-                </h4>
+<div class="container row justify-content-center m-auto">
+  <div class="card mx-4 mt-5" style="width: 18rem">
+    <img
+      src="https://shop.unicornstore.in/uploads/images/medium/34e6957bed83de93e7dc296ab0ede5c6.png"
+      class="card-img-top"
+      alt="Some issue Occur"
+    />
+    <div class="card-body">
+      <h3 class="card-title">IPhone 13 Pro 128GB(Gold)</h3>
+      <h5>In Just Rs. 144415</h5>
+      <p class="card-text">
+        To Achive Your goals you need a secure partner that is here.. A person
+        who "Think Different" with others can only live the different life.
+      </p>
+      <div class="row">
+        <h4 style="color: green">Add to cart</h4>
 
-                <div class="btn btn-primary" *ngIf="itemValue0==0;else groupButtons0" (click)="onClickAdd0()"> Add </div>
-                <ng-template #groupButtons0>
-                    <div class="btn-group" role="group" aria-label="Basic outlined example">
-
-                        <button type="button" class="btn btn-outline-primary " (click)="onClickSub0()"> - </button>
-                        <button type="button" class="btn btn-outline-primary">{{ itemValue0 }}</button>
-                        <button type="button" class="btn btn-outline-primary" (click)="onClickAdd0()">+</button>
-                    </div>
-                </ng-template>
-            </div>
-
+        <div
+          class="btn btn-primary"
+          *ngIf="arr[0].Quantity == 0; else groupButtons0"
+          (click)="quantityChange(0, '1')"
+        >
+          Add
         </div>
+        <ng-template #groupButtons0>
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="Basic outlined example"
+          >
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="quantityChange(0, '-1')"
+            >
+              -
+            </button>
+            <button type="button" class="btn btn-outline-primary">
+              {{ arr[0].Quantity }}
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="quantityChange(0, '1')"
+            >
+              +
+            </button>
+          </div>
+        </ng-template>
+      </div>
     </div>
-   
+  </div>
 
+  <div class="card mx-4 mt-5" style="width: 18rem">
+    <img
+      src="https://d2d22nphq0yz8t.cloudfront.net/88e6cc4b-eaa1-4053-af65-563d88ba8b26/https://media.croma.com/image/upload/v1662424212/Croma%20Assets/Communication/Mobiles/Images/234252_czgdvc.png/mxw_1650,f_auto"
+      class="card-img-top"
+      alt="Some issue Occur"
+    />
+    <div class="card-body">
+      <h3 class="card-title">IPhone 12 64GB(Purple)</h3>
+      <h5>In Just RS. 54990</h5>
+      <p class="card-text">
+        To Achive Your goals you need a secure partner that is here.. A person
+        who "Think Different" with others can only live the different life.
+      </p>
+      <div class="row">
+        <h4 style="color: green">Add to cart</h4>
 
-    <div class="card mx-4 mt-5" style="width: 18rem;">
-        <img src="https://d2d22nphq0yz8t.cloudfront.net/88e6cc4b-eaa1-4053-af65-563d88ba8b26/https://media.croma.com/image/upload/v1662424212/Croma%20Assets/Communication/Mobiles/Images/234252_czgdvc.png/mxw_1650,f_auto"
-            class="card-img-top" alt="Some issue Occur">
-        <div class="card-body">
-            <h3 class="card-title">IPhone 12 64GB(Purple)</h3>
-            <h5>In Just RS. 54990 </h5>
-            <p class="card-text">To Achive Your goals you need a secure partner that is here..
-                A person who "Think Different" with others can only live the different life.</p>
-            <div class="row">
-                <h4 style="color: green;">
-                    Add to cart
-                </h4>
-
-                <div class="btn btn-primary" *ngIf="itemValue1==0;else groupButtons1" (click)="onClickAdd1()"> Add </div>
-                <ng-template #groupButtons1>
-                    <div class="btn-group" role="group" aria-label="Basic outlined example">
-
-                        <button type="button" class="btn btn-outline-primary " (click)="onClickSub1()"> - </button>
-                        <button type="button" class="btn btn-outline-primary">{{ itemValue1 }}</button>
-                        <button type="button" class="btn btn-outline-primary" (click)="onClickAdd1()">+</button>
-                    </div>
-                </ng-template>
-            </div>
+        <div
+          class="btn btn-primary"
+          *ngIf="arr[1].Quantity == 0; else groupButtons1"
+          (click)="quantityChange(1, '1')"
+        >
+          Add
         </div>
+        <ng-template #groupButtons1>
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="Basic outlined example"
+          >
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="quantityChange(1, '-1')"
+            >
+              -
+            </button>
+            <button type="button" class="btn btn-outline-primary">
+              {{ arr[1].Quantity }}
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="quantityChange(1, '1')"
+            >
+              +
+            </button>
+          </div>
+        </ng-template>
+      </div>
     </div>
-    <div class="card mx-4 mt-5" style="width: 18rem;">
-        <img src="https://d2d22nphq0yz8t.cloudfront.net/88e6cc4b-eaa1-4053-af65-563d88ba8b26/https://media.croma.com/image/upload/v1662418914/Croma%20Assets/Communication/Mobiles/Images/230107_t40uo8.png/mxw_1650,f_auto"
-            class="card-img-top" alt="Some issue Occur">
-        <div class="card-body">
-            <h3 class="card-title">IPhone 11 64GB(White)</h3>
-            <h5>In Just Rs 41490 </h5>
-            <p class="card-text">To Achive Your goals you need a secure partner that is here..
-                A person who "Think Different" with others can only live the different life.</p>
-            <div class="row">
-                <h4 style="color: green;">
-                    Add to cart
-                </h4>
+  </div>
+  <div class="card mx-4 mt-5" style="width: 18rem">
+    <img
+      src="https://d2d22nphq0yz8t.cloudfront.net/88e6cc4b-eaa1-4053-af65-563d88ba8b26/https://media.croma.com/image/upload/v1662418914/Croma%20Assets/Communication/Mobiles/Images/230107_t40uo8.png/mxw_1650,f_auto"
+      class="card-img-top"
+      alt="Some issue Occur"
+    />
+    <div class="card-body">
+      <h3 class="card-title">IPhone 11 64GB(White)</h3>
+      <h5>In Just Rs 41490</h5>
+      <p class="card-text">
+        To Achive Your goals you need a secure partner that is here.. A person
+        who "Think Different" with others can only live the different life.
+      </p>
+      <div class="row">
+        <h4 style="color: green">Add to cart</h4>
 
-                <div class="btn btn-primary" *ngIf="itemValue2==0;else groupButtons2" (click)="onClickAdd2()"> Add </div>
-                <ng-template #groupButtons2>
-                    <div class="btn-group" role="group" aria-label="Basic outlined example">
-
-                        <button type="button" class="btn btn-outline-primary " (click)="onClickSub2()"> - </button>
-                        <button type="button" class="btn btn-outline-primary">{{ itemValue2 }}</button>
-                        <button type="button" class="btn btn-outline-primary" (click)="onClickAdd2()">+</button>
-                    </div>
-                </ng-template>
-            </div>
+        <div
+          class="btn btn-primary"
+          *ngIf="arr[2].Quantity == 0; else groupButtons2"
+          (click)="quantityChange(2, '1')"
+        >
+          Add
         </div>
+        <ng-template #groupButtons2>
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="Basic outlined example"
+          >
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="quantityChange(2, '-1')"
+            >
+              -
+            </button>
+            <button type="button" class="btn btn-outline-primary">
+              {{ arr[2].Quantity }}
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="quantityChange(2, '1')"
+            >
+              +
+            </button>
+          </div>
+        </ng-template>
+      </div>
     </div>
-    <div class="card mx-4 mt-5" style="width: 18rem;">
-        <img src="https://img1.gadgetsnow.com/gd/images/products/additional/large/G390858_View_1/mobiles/smartphones/apple-iphone-14-pro-max-256-gb-deep-purple-6-gb-ram-.jpg"
-            class="card-img-top" alt="Some issue Occur">
-        <div class="card-body">
-            <h3 class="card-title">IPhone 14 ProMax
+  </div>
+  <div class="card mx-4 mt-5" style="width: 18rem">
+    <img
+      src="https://img1.gadgetsnow.com/gd/images/products/additional/large/G390858_View_1/mobiles/smartphones/apple-iphone-14-pro-max-256-gb-deep-purple-6-gb-ram-.jpg"
+      class="card-img-top"
+      alt="Some issue Occur"
+    />
+    <div class="card-body">
+      <h3 class="card-title">IPhone 14 ProMax 256GB(Deep purple)</h3>
+      <h5>In Just Rs.134900</h5>
+      <p class="card-text">
+        To Achive Your goals you need a secure partner that is here.. A person
+        who "Think Different" with others can only live the different life.
+      </p>
+      <div class="row">
+        <h4 style="color: green">Add to cart</h4>
 
-                256GB(Deep purple)
-            </h3>
-            <h5>In Just Rs.134900 </h5>
-            <p class="card-text">To Achive Your goals you need a secure partner that is here..
-                A person who "Think Different" with others can only live the different life.</p>
-            <div class="row">
-                <h4 style="color: green;">
-                    Add to cart
-                </h4>
-
-                <div class="btn btn-primary" *ngIf="itemValue3==0;else groupButtons3" (click)="onClickAdd3()"> Add </div>
-                <ng-template #groupButtons3>
-                    <div class="btn-group" role="group" aria-label="Basic outlined example">
-
-                        <button type="button" class="btn btn-outline-primary " (click)="onClickSub3()"> - </button>
-                        <button type="button" class="btn btn-outline-primary">{{ itemValue3 }}</button>
-                        <button type="button" class="btn btn-outline-primary" (click)="onClickAdd3()">+</button>
-                    </div>
-                </ng-template>
-            </div>
+        <div
+          class="btn btn-primary"
+          *ngIf="arr[3].Quantity == 0; else groupButtons3"
+          (click)="quantityChange(3, '1')"
+        >
+          Add
         </div>
+        <ng-template #groupButtons3>
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="Basic outlined example"
+          >
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="quantityChange(3, '-1')"
+            >
+              -
+            </button>
+            <button type="button" class="btn btn-outline-primary">
+              {{ arr[3].Quantity }}
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="quantityChange(3, '1')"
+            >
+              +
+            </button>
+          </div>
+        </ng-template>
+      </div>
     </div>
-    <div class="card mx-4 mt-5" style="width: 18rem;">
-        <img src="https://shop.unicornstore.in/uploads/images/medium/10bb152089499515e46bbdfaba61ac9e.png"
-            class="card-img-top" alt="Some issue Occur">
-        <div class="card-body">
-            <h3 class="card-title">IPhone 13
-                256GB(Blue)
-            </h3>
-            <h5>In Just Rs. 69900 </h5>
-            <p class="card-text">To Achive Your goals you need a secure partner that is here..
-                A person who "Think Different" with others can only live the different life. </p>
-            <div class="row">
-                <h4 style="color: green;">
-                    Add to cart
-                </h4>
+  </div>
+  <div class="card mx-4 mt-5" style="width: 18rem">
+    <img
+      src="https://shop.unicornstore.in/uploads/images/medium/10bb152089499515e46bbdfaba61ac9e.png"
+      class="card-img-top"
+      alt="Some issue Occur"
+    />
+    <div class="card-body">
+      <h3 class="card-title">IPhone 13 256GB(Blue)</h3>
+      <h5>In Just Rs. 69900</h5>
+      <p class="card-text">
+        To Achive Your goals you need a secure partner that is here.. A person
+        who "Think Different" with others can only live the different life.
+      </p>
+      <div class="row">
+        <h4 style="color: green">Add to cart</h4>
 
-                <div class="btn btn-primary" *ngIf="itemValue4==0;else groupButtons4" (click)="onClickAdd4()"> Add </div>
-                <ng-template #groupButtons4>
-                    <div class="btn-group" role="group" aria-label="Basic outlined example">
-
-                        <button type="button" class="btn btn-outline-primary " (click)="onClickSub4()"> - </button>
-                        <button type="button" class="btn btn-outline-primary">{{ itemValue4 }}</button>
-                        <button type="button" class="btn btn-outline-primary" (click)="onClickAdd4()">+</button>
-                    </div>
-                </ng-template>
-            </div>
+        <div
+          class="btn btn-primary"
+          *ngIf="arr[4].Quantity == 0; else groupButtons4"
+          (click)="quantityChange(4, '1')"
+        >
+          Add
         </div>
+        <ng-template #groupButtons4>
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="Basic outlined example"
+          >
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="quantityChange(4, '-1')"
+            >
+              -
+            </button>
+            <button type="button" class="btn btn-outline-primary">
+              {{ arr[4].Quantity }}
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="quantityChange(4, '1')"
+            >
+              +
+            </button>
+          </div>
+        </ng-template>
+      </div>
     </div>
-
-   
+  </div>
 </div>

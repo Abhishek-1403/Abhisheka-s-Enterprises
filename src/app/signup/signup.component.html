@@ -21,6 +21,16 @@
                         </div>
                     </div>
     
+                    <div class="mb-4 pb-2">
+                        <div class="alert alert-danger form-control" *ngIf="category.touched && category.invalid" >Category Required</div>
+                        <div class="form-outline">
+                          <input type="text" id="form3Examplev4" class="form-control form-control-lg"
+                          placeholder="Enter Categry Of shop" name="Category" 
+                          required ngModel #category="ngModel" />
+                          <label class="form-label" for="form3Examplev4">Category</label>
+                        </div>
+                    </div>
+    
   
                     <div class="row">
                       <div class="col-md-6 mb-4 pb-2">
@@ -199,7 +209,7 @@
   
                     <button type="button" class="btn btn-light btn-lg m-auto"
                       data-mdb-ripple-color="dark" style="background-Color:orange"
-                      [disabled]="email.invalid || phone.invalid || landmark.invalid || address.invalid|| password.invalid || username.invalid ">Create Account</button>
+                      [disabled]="email.invalid || phone.invalid || landmark.invalid || address.invalid|| password.invalid || username.invalid || category.invalid">Create Account</button>
   
                   </div>
                 
