@@ -5,9 +5,32 @@ import { Injectable } from '@angular/core';
 })
 export class AddToCartService {
 
-  constructor() { }
+  
+  subtotal=0;
+  tax=0;
+  discount=0;
+  totalprize=0;
 
-  addItem(name:string,price:number,specification:string,image:string){
-
+  subTotalUpdate(price:number,operation:string){
+    if(operation=="+"){
+      this.subtotal += price;
+    }
+    else if(operation=="-"){
+      this.subtotal -= price;
+    }
+    
   }
+  
+  disCount(){
+    this.discount=(this.subtotal*15)/100;
+  }
+
+  Gst(){
+    this.tax=((this.subtotal-this.discount)*18)/100;
+  }
+  totalPrize(){
+    this.totalprize=this.subtotal + this.tax - this.discount ;
+  }
+
+ 
 }

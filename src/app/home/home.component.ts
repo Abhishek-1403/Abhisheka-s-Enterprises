@@ -18,24 +18,24 @@ export class HomeComponent implements OnInit {
 
   arr:{id:number,name:string,price:number,specification:string,image:string,Quantity:number}[]=[];
   
-  constructor(private homeService:HomeService,private addToCart:AddToCartService) { }
+  constructor(private homeService:HomeService,private addToCartService:AddToCartService) { }
   
   ngOnInit(){
 
     this.arr=this.homeService.arr;
-    console.log(this.arr[0].price);
+    
    
   }
   quantityChange(id:number,operation:string){
-    if(this.arr[id].Quantity===0){
-      this.homeService.QuantityChange(id,operation);
-      this.addToCart.addItem(this.arr[id].name,this.arr[id].price,this.arr[id].specification,this.arr[id].image);
-
-    }
-    else{
-      this.homeService.QuantityChange(id,operation);
-    }
+    this.homeService.QuantityChange(id,operation);
   
+  }
+
+  subTotalUpDate(price:number,operation:string){
+    this.addToCartService.subTotalUpdate(price,operation);
+    this.addToCartService.disCount();
+    this.addToCartService.Gst();
+    this.addToCartService.totalPrize();
   }
 
   
@@ -49,12 +49,5 @@ export class HomeComponent implements OnInit {
 
 
   
-  //  basicAutocomplete = document.querySelector('#search-autocomplete');
-//  data = ['One', 'Two', 'Three', 'Four', 'Five'];
-//  dataFilter = (value:string) => {
-//   return this.data.filter((item) => {
-//     return item.toLowerCase().startsWith(value.toLowerCase());
-//   });
-// };
 
 }

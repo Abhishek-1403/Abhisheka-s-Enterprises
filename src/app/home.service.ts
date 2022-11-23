@@ -24,10 +24,14 @@ export class HomeService {
       this.arr[id].Quantity--;
       console.log(this.arr[id])
    }
-   if(operation=="0"){
-    // for cart updation in future. When cart is empty then delete from cart.
-   }
   }
+
+ 
+
+
+    
+
+
 
 
   constructor() { }
