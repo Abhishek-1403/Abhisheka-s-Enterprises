@@ -84,7 +84,7 @@
         <div
           class="btn btn-primary"
           *ngIf="array.Quantity == 0; else groupButtons"
-          (click)="quantityChange(array.id, '1');subTotalUpDate(array.price,'+')"
+          (click)="quantityChange(array.id, '1');subTotalUpDate(array.price,'+');"
         >
           Add
         </div>
@@ -97,7 +97,7 @@
             <button
               type="button"
               class="btn btn-outline-primary"
-              (click)="quantityChange(array.id, '-1');subTotalUpDate(array.price,'-')"
+              (click)="quantityChange(array.id, '-1');subTotalUpDate(array.price,'-');"
             >
               -
             </button>

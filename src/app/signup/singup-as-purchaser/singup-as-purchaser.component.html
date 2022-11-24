@@ -1,0 +1,131 @@
+<section class="vh-100 bg-image"
+  style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create Your user account</h2>
+
+              <form>
+                <div class="row">
+                    <div class="col-md-6 mb-2 pb-2">
+
+                      <div class="form-outline">
+                          <div class="alert alert-danger form-control" *ngIf="firstname.touched && firstname.invalid" >FirstName Required</div>
+
+                        <input type="text" id="form3Examplev2" class="form-control form-control-lg" name="firstname"
+                         required ngModel #firstname="ngModel" />
+                        <label class="form-label" for="form3Examplev2">First name</label>
+                      </div>
+
+                    </div>
+                    <div class="col-md-6 mb-2 pb-2">
+
+                      <div class="form-outline">
+                        <input type="text" id="form3Examplev3" class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Examplev3">Last name</label>
+                      </div>
+
+                    </div>
+                </div>
+                <div class="mb-2 pb-2">
+                    <div class="form-outline">
+                      <div class="alert alert-danger form-control" *ngIf="username.touched && username.invalid" >UserName Required And its must be unique..</div>
+
+                      <input type="text" id="form3Examplev4" class="form-control form-control-lg" name="username" 
+                      placeholder="Username must be unique" required ngModel #username="ngModel"/>
+                      <label class="form-label" for="form3Examplev4">UserName</label>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-2 pb-2 mb-md-0 pb-md-0">
+
+                      <div class="form-outline">
+                        <div class="alert alert-danger form-control" *ngIf="(password.touched && password.invalid) || (password.errors?.['minlength'] && password.invalid)" >Password Required Or must contain Atleast 6 Charecters.. </div>
+
+                        <input type="password" id="form3Examplev5" class="form-control form-control-lg" name="password" 
+                        required minlength="6" ngModel #password="ngModel" />
+                        <label class="form-label" for="form3Examplev5">Password</label>
+                      </div>
+
+                    </div>
+                    <div class="col-md-6 mb-2 pb-2 mb-md-0 pb-md-0">
+                      
+                      <div class="form-outline">
+                        <div class="alert alert-danger form-control" *ngIf="confirmPassword.invalid && confirmPassword.touched">Password Must be Same</div>
+                        <input type="password" id="form3Examplev5" class="form-control form-control-lg" required name="confirmPassword" 
+                        ngModel #confirmPassword="ngModel" />
+                        <label class="form-label" for="form3Examplev5">Confirm Password</label>
+                      </div>
+                    </div>
+                    </div>
+
+                <div class="form-outline mb-2">
+                  <div class="alert alert-danger" *ngIf="email.touched&&email.invalid">Email is Required </div>
+                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" 
+                  placeholder="me@gmail.com" required name="email" ngModel #email="ngModel" />
+                  <label class="form-label" for="form3Example3cg">Your Email</label>
+                </div>
+
+                <div class="mb-2 pb-2">
+                    <div class="form-outline form-white">
+                      <div class="alert alert-danger" *ngIf="address.touched&&address.invalid">Address is Required </div>
+                      <input type="text" id="form3Examplea2" placeholder="Enter your full Address" class="form-control form-control-lg" name="address" required ngModel #address="ngModel" />
+                      <label class="form-label" for="form3Examplea2">Full Address</label>
+                    </div>
+                </div>
+
+ 
+                <div class="row">
+                    <div class="col-md-5 mb-4 pb-2">
+      
+                        <div class="form-outline form-white">
+                          <input type="text" id="form3Examplea5" class="form-control form-control-lg" />
+                          <label class="form-label" for="form3Examplea5">City/Town</label>
+                        </div>
+    
+                    </div>
+    
+                    <div class="col-md-7 mb-4 pb-2">
+                        <div class="form-outline form-white">
+                          <div class="alert alert-danger" *ngIf="(phone.touched && phone.invalid) || (phone.errors?.['minlength']&& phone.invalid )"> 
+                            PhoneNumber required And its must contain exact 10 digits
+                          </div>
+                          <input type="tel" id="form3Examplea8" class="form-control form-control-lg" pattern="[0-9]{10}" 
+                          required name="phone" ngModel #phone="ngModel"  minlength="10" maxlength="10" />
+                          <label class="form-label" for="form3Examplea8">Phone Number</label>
+                        </div>
+    
+                    </div>  
+                </div>
+
+
+                <div class="form-check d-flex justify-content-center mb-5">
+                  <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
+                  <label class="form-check-label" for="form2Example3g">
+                    I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
+                  </label>
+                </div>
+
+              
+
+                <div class="d-flex justify-content-center">
+                  <button type="button"
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                </div>
+
+                <p class="text-center text-muted mt-5 mb-0" routerLink="/login">Have already an account? 
+                    <u>Login here</u></p>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,223 +1,91 @@
-<section class="h-100 h-custom gradient-custom-2">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-12">
-          <div class="card card-registration card-registration-2" style="border-radius: 15px;">
-            <div class="card-body p-0">
-              <div class="row g-0">
-                <div class="col-lg-6">
-                  <div class="p-5">
-                    <h3 class="fw-normal mb-5" style="color: #4835d4;">General Infomation</h3>
-  
-                    
-                    
-                    <div class="mb-4 pb-2">
-                        <div class="alert alert-danger form-control" *ngIf="shopname.touched && shopname.invalid" >Shop name Required</div>
-                        <div class="form-outline">
-                          <input type="text" id="form3Examplev4" class="form-control form-control-lg"
-                          placeholder="Enter your shop name here.." name="shopname" 
-                          required ngModel #shopname="ngModel" />
-                          <label class="form-label" for="form3Examplev4">Shop Name</label>
-                        </div>
-                    </div>
-    
-                    <div class="mb-4 pb-2">
-                        <div class="alert alert-danger form-control" *ngIf="category.touched && category.invalid" >Category Required</div>
-                        <div class="form-outline">
-                          <input type="text" id="form3Examplev4" class="form-control form-control-lg"
-                          placeholder="Enter Categry Of shop" name="Category" 
-                          required ngModel #category="ngModel" />
-                          <label class="form-label" for="form3Examplev4">Category</label>
-                        </div>
-                    </div>
-    
-  
-                    <div class="row">
-                      <div class="col-md-6 mb-4 pb-2">
-  
-                        <div class="form-outline">
-                            <div class="alert alert-danger form-control" *ngIf="firstname.touched && firstname.invalid" >FirstName Required</div>
-
-                          <input type="text" id="form3Examplev2" class="form-control form-control-lg" name="firstname"
-                           required ngModel #firstname="ngModel" />
-                          <label class="form-label" for="form3Examplev2">First name</label>
-                        </div>
-  
-                      </div>
-                      <div class="col-md-6 mb-4 pb-2">
-  
-                        <div class="form-outline">
-                          <input type="text" id="form3Examplev3" class="form-control form-control-lg" />
-                          <label class="form-label" for="form3Examplev3">Last name</label>
-                        </div>
-  
-                      </div>
-                    </div>
-  
-                   
-  
-                    <div class="mb-4 pb-2">
-                      <div class="form-outline">
-                        <div class="alert alert-danger form-control" *ngIf="username.touched && username.invalid" >UserName Required And its must be unique..</div>
-
-                        <input type="text" id="form3Examplev4" class="form-control form-control-lg" name="username" 
-                        required ngModel #username="ngModel"/>
-                        <label class="form-label" for="form3Examplev4">UserName</label>
-                      </div>
-                    </div>
-  
-                    <div class="row">
-                      <div class="col-md-6 mb-4 pb-2 mb-md-0 pb-md-0">
-  
-                        <div class="form-outline">
-                          <div class="alert alert-danger form-control" *ngIf="(password.touched && password.invalid) || (password.errors?.['minlength'] && password.invalid)" >Password Required Or must contain Atleast 6 Charecters.. </div>
-                          <!-- <div class="alert alert-danger form-control" *ngIf="password.errors?.['minlength'] && password.invalid" >Password must contain Atleast 6 Charecters..</div> -->
-
-                          <input type="password" id="form3Examplev5" class="form-control form-control-lg" name="password" 
-                          required minlength="6" ngModel #password="ngModel" />
-                          <label class="form-label" for="form3Examplev5">Password</label>
-                        </div>
-  
-                      </div>
-                      <div class="col-md-6 mb-4 pb-2 mb-md-0 pb-md-0">
-                        
-                        <div class="form-outline">
-                          <div class="alert alert-danger form-control" *ngIf="confirmPassword.invalid && confirmPassword.touched">Password Must be Same</div>
-                          <input type="password" id="form3Examplev5" class="form-control form-control-lg" required name="confirmPassword" 
-                          ngModel #confirmPassword="ngModel" />
-                          <label class="form-label" for="form3Examplev5">Confirm Password</label>
-                        </div>
-  
-                      </div>
-                      <div class="mb-4 pb-2 pt-4 ">
-                        <select class="select form-control">
-                          <option value="0">Please select Category Of shop</option>
-                          <option value="1">Mobile's </option>
-                          <option value="2">Mobile's With Electronic</option>
-                          <option value="3">Restaurent</option>
-                          <option value="4">Genral Store</option>
-                        </select>
-                      </div>
-                      
-                      <div class="mb-4 pb-2 p3-4">
-                        <div class="form-outline">
-                            <select class="select form-control">
-                                <option value=".">How much staff you have For Delivery  </option>
-                                <option value="0">Zero  </option>
-                                <option value="1"> One </option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                                <option value="4">Four</option>
-                                <option value="4">Five</option>
-                                <option value="4">More Then Five</option>
-                              </select>
-                        </div>
-                      </div>
-                    </div>
-  
-                  </div>
+<section class="h-100 gradient-form">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-10">
+        <div class="card rounded-3 text-black">
+          <div class="row g-0">
+            <div class="col-lg-6">
+              <div class="card-body p-md-5 mx-md-4">
+                <div class="text-center">
+                  <img [src]="logoUrl" style="width: 185px" alt="logo" />
+                  <h4 class="mt-1 mb-5 pb-1">Welcome In Abhisheka's Enterprises</h4>
                 </div>
-                <div class="col-lg-6 bg-indigo text-white">
-                
-                  <div class="p-5">
-                    <h3 class="fw-normal mb-5">Delivery Pickup Details</h3>
-  
-                    <div class="mb-4 pb-2">
-                      <div class="form-outline form-white">
-                        <div class="alert alert-danger" *ngIf="address.touched&&address.invalid">Address is Required </div>
-                        <input type="text" id="form3Examplea2" placeholder="Enter your full Address" class="form-control form-control-lg" name="address" required ngModel #address="ngModel" />
-                        <label class="form-label" for="form3Examplea2">Full Address</label>
+
+                <form #f="ngForm">
+                  <h5>
+                     Please Select In Which Mode you want to SingUP. 
+                  </h5>
+
+                  <div class="form-outline mb-4 justify-content-center m-auto">
+                    <div
+                      style="border: solid rgb(98, 180, 212)"
+                      class="mt-3 pt-4 pb-2"
+                      id="xy"
+                    >
+                      <div class="xy pt-1 relative pb-1 px-2">
+                        <h5
+                          style="display: flex; justify-content: space-between"
+                        >
+                          <h5>For SignUp as a Provider.</h5>
+                          <button class="btn btn-info" routerLink="signupasprovider">
+                            <h5>Press here</h5>
+                          </button>
+                        </h5>
                       </div>
                     </div>
-  
-                    <div class="mb-4 pb-2">
-                      <div class="form-outline form-white">
-                        <div class="alert alert-danger" *ngIf="landmark.touched&&landmark.invalid">Landmark Required For Efficient Delivery</div>
-                        <input type="text" id="form3Examplea3" class="form-control form-control-lg" 
-                        placeholder="Enter Landmark Near By You"
-                        name="landmark" 
-                        required ngModel #landmark="ngModel" />
-                        <label class="form-label" for="form3Examplea3">Land Mark Near By You</label>
-                      </div>
-                    </div>
-  
-                    <div class="row">
-                      <div class="col-md-5 mb-4 pb-2">
-  
-                        <div class="form-outline form-white">
-                          <input type="text" id="form3Examplea4" class="form-control form-control-lg" />
-                          <label class="form-label" for="form3Examplea4">Zip Code</label>
-                        </div>
-  
-                      </div>
-                      <div class="col-md-7 mb-4 pb-2">
-  
-                        <div class="form-outline form-white">
-                          <input type="text" id="form3Examplea5" class="form-control form-control-lg" />
-                          <label class="form-label" for="form3Examplea5">City/Town</label>
-                        </div>
-  
-                      </div>
-                    </div>
-  
-                    <div class="mb-4 pb-2">
-                      <div class="form-outline form-white">
-                        <input type="text" id="form3Examplea6" class="form-control form-control-lg" />
-                        <label class="form-label" for="form3Examplea6">Country</label>
-                      </div>
-                    </div>
-  
-                    <div class="row">
-                      <div class="col-md-5 mb-4 pb-2">
-  
-                        <div class="form-outline form-white">
-                          <input type="text" id="form3Examplea7" class="form-control form-control-lg" />
-                          <label class="form-label" for="form3Examplea7">Code +</label>
-                        </div>
-  
-                      </div>
-                      <div class="col-md-7 mb-4 pb-2">
-  
-                        <div class="form-outline form-white">
-                          <div class="alert alert-danger" *ngIf="(phone.touched && phone.invalid) || (phone.errors?.['minlength']&& phone.invalid )"> 
-                            PhoneNumber required And its must contain exact 10 digits
-                          </div>
-                          <input type="tel" id="form3Examplea8" class="form-control form-control-lg" pattern="[0-9]{10}" 
-                          required name="phone" ngModel #phone="ngModel"  minlength="10" maxlength="10" />
-                          <label class="form-label" for="form3Examplea8">Phone Number</label>
-                        </div>
-  
-                      </div>
-                    </div>
-  
-                    <div class="mb-4">
-                      <div class="form-outline form-white">
-                        <div class="alert alert-danger" *ngIf="email.invalid && email.touched"> Email Reqiured </div>
-                        <input type="email" id="form3Examplea9" class="form-control form-control-lg" name="email" placeholder="me@gmail.com" 
-                        required ngModel #email="ngModel"/>
-                        <label class="form-label" for="form3Examplea9">Your Email</label>
-                      </div>
-                    </div>
-  
-                    <div class="form-check d-flex justify-content-start mb-4 pb-3">
-                      <input class="form-check-input me-3" type="checkbox" value="" id="form2Example3c" />
-                      <label class="form-check-label text-white" for="form2Example3">
-                        I do accept the <a href="#!" class="text-white"><u>Terms and Conditions</u></a> of your
-                        site.
-                      </label>
-                    </div>
-  
-                    <button type="button" class="btn btn-light btn-lg m-auto"
-                      data-mdb-ripple-color="dark" style="background-Color:orange"
-                      [disabled]="email.invalid || phone.invalid || landmark.invalid || address.invalid|| password.invalid || username.invalid || category.invalid">Create Account</button>
-  
                   </div>
-                
-                </div>
+                  <div class="form-outline mb-4 justify-content-center m-auto">
+                    <div
+                      style="border: solid rgb(98, 180, 212)"
+                      class="mt-3 pt-4 pb-2"
+                      id="xy"
+                    >
+                      <div class="xy pt-1 relative pb-1 px-2">
+                        <h5
+                          style="display: flex; justify-content: space-between"
+                        >
+                          <h5>For SignUp as a User.</h5>
+                          <button class="btn btn-info" routerLink="signupasuser">
+                            <h5>Press here</h5>
+                          </button>
+                        </h5>
+                      </div>
+                    </div>
+                  </div>
+
+               
+
+                  <div
+                    class="d-flex align-items-center justify-content-center pb-4"
+                  >
+                    <h6 class="mb-0 me-2">Have already an account?</h6>
+                    <button
+                      type="button"
+                      class="btn btn-outline-info"
+                      routerLink="../login"
+                    >
+                      LogIn here
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+              <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                <h4 class="mb-4">We are your friend Not just a company.</h4>
+                <p class="small mb-0">
+                  Our main aim is to become first choice of every Indian, for
+                  all the services which are provided by us. we are the most
+                  trustable friend of our every customer , Your coming back was
+                  very awaiting for us. Welcome Again.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+
