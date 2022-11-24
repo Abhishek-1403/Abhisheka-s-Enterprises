@@ -10,15 +10,22 @@ export class AddToCartService {
   tax=0;
   discount=0;
   totalprize=0;
+  cartItemNo=0;
 
   subTotalUpdate(price:number,operation:string){
     if(operation=="+"){
+      this.cartItemNo +=1;
       this.subtotal += price;
     }
     else if(operation=="-"){
+      this.cartItemNo -=1;
       this.subtotal -= price;
     }
     
+  }
+
+  totalCartItemUpdate(){
+    return this.cartItemNo;
   }
   
   disCount(){
@@ -31,6 +38,8 @@ export class AddToCartService {
   totalPrize(){
     this.totalprize=this.subtotal + this.tax - this.discount ;
   }
+
+  
 
  
 }

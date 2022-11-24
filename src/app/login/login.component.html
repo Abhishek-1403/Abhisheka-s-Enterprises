@@ -8,9 +8,9 @@
                 <div class="card-body p-md-5 mx-md-4">
   
                   <div class="text-center">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                    <img [src]="logoUrl"
                       style="width: 185px;" alt="logo">
-                    <h4 class="mt-1 mb-5 pb-1">Abhisheka's Enterprises Team</h4>
+                    <h4 class="mt-1 mb-5 pb-1">Abhisheka's Enterprises Team Glad to see You Again.</h4>
                   </div>
   
                   <form #f="ngForm" >
@@ -31,7 +31,7 @@
                     </div>
   
                     <div class="text-center pt-1 mb-5 pb-1">
-                      <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button" [disabled]="f.invalid">
+                      <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" [disabled]="f.invalid">
                         Log
                         in</button>
                         <div><a class="text-muted" href="#!">Forgot password?</a></div>
@@ -39,7 +39,7 @@
   
                     <div class="d-flex align-items-center justify-content-center pb-4">
                       <p class="mb-0 me-2">Don't have an account?</p>
-                      <button type="button" class="btn btn-outline-danger" >Create new</button>
+                      <button type="button" class="btn btn-outline-danger" routerLink="../signup">Create new</button>
                     </div>
   
                   </form>
@@ -50,7 +50,8 @@
                 <div class="text-white px-3 py-4 p-md-5 mx-md-4">
                   <h4 class="mb-4">We are your friend Not just a company.</h4>
                   <p class="small mb-0">Our main aim is to become first choice of every Indian, for all the services which are provided by us.
-                    we are the most trustable friend of our every customer , Your coming back is very awaiting for us.  
+                    we are the most trustable friend of our every customer , Your coming back was very awaiting for us. 
+                    Welcome Again.  
                     
                   </p>
                 </div>

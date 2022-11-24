@@ -11,6 +11,8 @@ import { SignupComponent } from './signup/signup.component';
 import { CartComponent } from './cart/cart.component';
 import { HomeService } from './home.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SingupAsPurchaserComponent } from './signup/singup-as-purchaser/singup-as-purchaser.component';
+import { SignupAsSellerComponent } from './signup/signup-as-seller/signup-as-seller.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ListOfItemsComponent,
     LoginComponent,
     SignupComponent,
-    CartComponent
+    
+    CartComponent,
+         SingupAsPurchaserComponent,
+         SignupAsSellerComponent
   ],
   imports: [
     BrowserModule,

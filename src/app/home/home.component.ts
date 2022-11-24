@@ -36,8 +36,12 @@ export class HomeComponent implements OnInit {
     this.addToCartService.disCount();
     this.addToCartService.Gst();
     this.addToCartService.totalPrize();
+    this.addToCartService.totalCartItemUpdate();
+    
   }
-
+  // totalCartItemUpdate(operation:string){
+    
+  // }
   
   
   
