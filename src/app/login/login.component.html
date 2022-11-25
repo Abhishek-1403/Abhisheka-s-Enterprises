@@ -13,7 +13,7 @@
                     <h4 class="mt-1 mb-5 pb-1">Abhisheka's Enterprises Team Glad to see You Again.</h4>
                   </div>
   
-                  <form #f="ngForm" >
+                  <form #f="ngForm" (ngSubmit)="onSubmit()">
                     <p>Please login to your account</p>
   
                     <div class="form-outline mb-4">
@@ -22,7 +22,6 @@
                         placeholder="Phone number or email address" name="username" required ngModel #user="ngModel"  />
                       <label class="form-label" for="form2Example11">Username</label>
                     </div>
-  
                     <div class="form-outline mb-4">
                       <div class="alert alert-danger" *ngIf="pass.touched && !pass.valid"> password cannot be empty</div>  
 

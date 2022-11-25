@@ -10,7 +10,7 @@ export class LoginComponent implements OnInit {
 
   logoUrl="assets/logo.png";
 
-  // @ViewChild('f') loginForm:NgForm;
+  @ViewChild('f') loginForm:any=NgForm;
 
   constructor() { }
 
@@ -21,8 +21,10 @@ export class LoginComponent implements OnInit {
   goToSignUp(){
     
   }
-  onSubmit(form:NgForm){
-    console.log(form);
+  onSubmit(){
+    console.log(this.loginForm.value);
+    this.loginForm.reset();
+
   }
 
 }

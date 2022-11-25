@@ -13,6 +13,8 @@ import { HomeService } from './home.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SingupAsPurchaserComponent } from './signup/singup-as-purchaser/singup-as-purchaser.component';
 import { SignupAsSellerComponent } from './signup/signup-as-seller/signup-as-seller.component';
+import { AuthenticationService } from './authentication.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,9 +32,10 @@ import { SignupAsSellerComponent } from './signup/signup-as-seller/signup-as-sel
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
-  providers: [HomeService],
+  providers: [HomeService,AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
