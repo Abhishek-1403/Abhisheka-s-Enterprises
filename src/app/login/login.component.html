@@ -12,8 +12,14 @@
                       style="width: 185px;" alt="logo">
                     <h4 class="mt-1 mb-5 pb-1">Abhisheka's Enterprises Team Glad to see You Again.</h4>
                   </div>
-  
-                  <form #f="ngForm" (ngSubmit)="onSubmit()">
+                  
+                  <div class="alert alert-danger" *ngIf="error">
+                    {{ error }}
+                  </div>
+                  <div  *ngIf="isLoading" style="text-align:center">
+                      <loading-spinner></loading-spinner>
+                  </div>
+                  <form #f="ngForm" (ngSubmit)="onSubmit(f)" *ngIf="!isLoading">
                     <p>Please login to your account</p>
   
                     <div class="form-outline mb-4">
@@ -30,7 +36,7 @@
                     </div>
   
                     <div class="text-center pt-1 mb-5 pb-1">
-                      <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" [disabled]="f.invalid">
+                      <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" [disabled]="f.invalid" >
                         Log
                         in</button>
                         <div><a class="text-muted" href="#!">Forgot password?</a></div>

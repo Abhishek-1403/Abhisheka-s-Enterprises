@@ -1,13 +1,14 @@
-<div class="container-fluid ">
-  <nav>
+<div >
+  <nav style="background-color:aqua">
     <div class="dec">
       <li routerLink="home"  routerLinkActive="active">Home</li>
       <li routerLink="listofitems" routerLinkActive="active">List of Items</li>
-      <li routerLink="cart" routerLinkActive="active">Your cart</li>
+      <li routerLink="cart" routerLinkActive="active" *ngIf="isAuthenticated">Your cart</li>
     </div>
     <div class="dec">
-      <li routerLink="login" routerLinkActive="active">Login</li>
-      <li routerLink="signup" routerLinkActive="active">SignUp</li>
+      <li *ngIf="isAuthenticated" (click)="logout()">Logout</li>
+      <li routerLink="login" routerLinkActive="active" *ngIf="!isAuthenticated">Login</li>
+      <li routerLink="signup" routerLinkActive="active" *ngIf="!isAuthenticated ">SignUp</li>
     </div>
   </nav>
   <router-outlet></router-outlet>
