@@ -20,6 +20,10 @@
 .column2{
     flex:50%;
 }
+#navbar{
+  margin: 0;
+  padding: 0;
+}
 
 
 
@@ -27,6 +31,7 @@
 
 * {
   box-sizing: border-box;
+
 }
 
 form.example input[type=text] {

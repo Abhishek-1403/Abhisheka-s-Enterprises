@@ -16,13 +16,14 @@ export class AppComponent implements OnInit,OnDestroy {
   private userSub:any;
   constructor(private authService: AuthenticationService) {}
 
-  ngOnInit() {
+  ngOnInit() {  
     this.userSub = this.authService.userToken.subscribe((user: any) => {
       this.isAuthenticated = !!user; 
-      console.log(user);
+      
       console.log(!user);
       console.log(!!user);
     });
+    this.authService.autoLogin();
   }
 
   ngOnDestroy(){

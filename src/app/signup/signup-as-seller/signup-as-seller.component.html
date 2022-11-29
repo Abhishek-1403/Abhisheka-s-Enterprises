@@ -1,3 +1,11 @@
+<div class=" alert alert-danger" *ngIf="error">
+  {{ error }}
+ </div>
+<div *ngIf="isLoading" style="text-align:center">
+   <loading-spinner></loading-spinner>
+</div>
+
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" *ngIf="!isLoading">
 <section class="h-100 h-custom gradient-custom-2">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -8,7 +16,9 @@
         >
           <div class="card-body p-0">
             <div class="row g-0">
-              <!-- <form #f="ngForm" (ngSubmit)="onSubmit()"> -->
+              <!-- <form #f="ngForm" (ngSubmit)="onSubmit(f)"></form> -->
+
+
                 <div class="col-lg-6">
                   <div class="p-5">
                     <h3 class="fw-normal mb-5" style="color: #4835d4">
@@ -92,7 +102,7 @@
                           <input
                             type="text"
                             id="form3Examplev3"
-                            class="form-control form-control-lg"
+                            class="form-control form-control-lg" ngModel required name="lastname" #lastname="ngModel"
                           />
                           <label class="form-label" for="form3Examplev3"
                             >Last name</label
@@ -176,7 +186,7 @@
                         </div>
                       </div>
                       <div class="mb-4 pb-2 pt-4">
-                        <select class="select form-control">
+                        <select class="select form-control"  ngModel required name="shopCategory" #shopCategory="ngModel">
                           <option value="0">
                             Please select Category Of shop
                           </option>
@@ -189,7 +199,7 @@
 
                       <div class="mb-5 pb-2 p3-4">
                         <div class="form-outline">
-                          <select class="select form-control">
+                          <select class="select form-control"  ngModel required name="delivery" #delivery="ngModel">
                             <option value=".">
                               How much staff you have For Delivery
                             </option>
@@ -272,6 +282,7 @@
                             type="text"
                             id="form3Examplea4"
                             class="form-control form-control-lg"
+                            ngModel required name="zip" #zip="ngModel"
                           />
                           <label class="form-label" for="form3Examplea4"
                             >Zip Code</label
@@ -284,6 +295,7 @@
                             type="text"
                             id="form3Examplea5"
                             class="form-control form-control-lg"
+                            ngModel required name="city" #city="ngModel"
                           />
                           <label class="form-label" for="form3Examplea5"
                             >City/Town</label
@@ -298,6 +310,7 @@
                           type="text"
                           id="form3Examplea6"
                           class="form-control form-control-lg"
+                          ngModel name="country" #country="ngModel"
                         />
                         <label class="form-label" for="form3Examplea6"
                           >Country</label
@@ -312,6 +325,7 @@
                             type="text"
                             id="form3Examplea7"
                             class="form-control form-control-lg"
+                            ngModel  name="code" #code="ngModel"
                           />
                           <label class="form-label" for="form3Examplea7"
                             >Code +</label
@@ -390,7 +404,7 @@
                         of your site.
                       </label>
                     </div>
-
+                  
                     <button
                       type="submit"
                       class="btn btn-light btn-lg m-auto"
@@ -405,6 +419,7 @@
                         username.invalid ||
                         category.invalid
                       "
+                      
                     >
                       Create Account
                     </button>
@@ -418,3 +433,4 @@
     </div>
   </div>
 </section>
+</form>
