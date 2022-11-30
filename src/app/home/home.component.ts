@@ -2,56 +2,75 @@ import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../home.service';
 import { faSearchengin } from '@fortawesome/free-brands-svg-icons';
 import { AddToCartService } from '../add-to-cart.service';
+import { AuthenticationService } from '../authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  providers:[]
+  providers: [],
 })
 export class HomeComponent implements OnInit {
-
-  urlLeftSide="./assets/ampireLeftSideImage.jpg";
-  urlRightSide="./assets/ampireRightSideImage.jpg";
-  urlNavBackGround="./assets/navCenterBackGroundImage.jpg";
+  urlLeftSide = './assets/ampireLeftSideImage.jpg';
+  urlRightSide = './assets/ampireRightSideImage.jpg';
+  urlNavBackGround = './assets/navCenterBackGroundImage.jpg';
   faSearchengin = faSearchengin;
 
-  arr:{id:number,name:string,price:number,specification:string,image:string,Quantity:number}[]=[];
-  
-  constructor(private homeService:HomeService,private addToCartService:AddToCartService) { }
-  
-  ngOnInit(){
+  arr2: {
+    id: number;
+    name: string;
+    price: number;
+    specification: string;
+    image: string;
+    Quantity: number;
+  }[] = [];
 
-    this.arr=this.homeService.arr;
-    
-   
-  }
-  quantityChange(id:number,operation:string){
-    this.homeService.QuantityChange(id,operation);
-  
+  constructor(
+    private homeService: HomeService,
+    private addToCartService: AddToCartService,
+    private auth: AuthenticationService,
+    private router: Router
+  ) {}
+
+  ngOnInit() {
+    this.arr2 = this.homeService.getMyProducts();
+    // this.getProduct();
+    // this.arr = this.homeService.arr2;
+    // this.arr2 = this.homeService.arr;
+    //console.log(this.arr2);
   }
 
-  subTotalUpDate(price:number,operation:string){
-    this.addToCartService.subTotalUpdate(price,operation);
+  status = false;
+  addItem(id: number, op1: string, op2: string, price: number) {
+    this.status = this.auth.isLogin;
+    console.log(this.status);
+
+    this.status
+      ? (this.quantityChange(id, op1), this.subTotalUpDate(price, op2))
+      : this.gotoLogin();
+  }
+
+  gotoLogin() {
+    this.router.navigate(['login']);
+  }
+
+  quantityChange(id: number, operation: string) {
+    this.homeService.QuantityChange(id, operation);
+  }
+
+  subTotalUpDate(price: number, operation: string) {
+    this.addToCartService.subTotalUpdate(price, operation);
     this.addToCartService.disCount();
     this.addToCartService.Gst();
     this.addToCartService.totalPrize();
     this.addToCartService.totalCartItemUpdate();
-    
   }
-  // totalCartItemUpdate(operation:string){
-    
+
+  // getProduct(){
+  //   this.homeService.getData().subscribe(
+  //     (response:any )=> console.log(response),
+  //     (err:any) => console.log(err)
+  //   )
   // }
-  
-  
-  
-
-
-
-
-
-
-
-  
-
 }

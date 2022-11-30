@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 body{
-    background-color: #eee;
+    background-color: #eee;    
 }
 .form-control.ng-touched.ng-invalid{
     border:  2px solid red;

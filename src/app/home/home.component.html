@@ -37,56 +37,28 @@
     </div>
   </ul>
 </nav>
-<!-- <nav  
-  style="background-color: rgba(255, 255, 0, 0.699);"
->
-  
-   
-      <span class="column">
-          <img
-            [src]="urlLeftSide"
-            alt="Happy to see You Here"
-            height="200"
-            width="468"
-          />
-        
-      </span>
-      <span class="column2">
-        
-          <img
-            [src]="urlNavBackGround"
-            alt="Welcome In Abhisheka's Enterprises"
-            height="200"
-            width="961"
-          />
-        
-      </span>
-      <span class="column">
-        
-          <img
-            [src]="urlRightSide"
-            alt="Happy to see You Here"
-            height="200"
-            width="468"
-          />
-        
-      </span>
-  
-
-</nav> -->
-
 <form
   class="example"
   action="/action_page.php"
   style="margin: auto; max-width: 700px"
 >
-  <div class="flex justify-content-center mt-3">
+  <div class="flex justify-content-center mt-5">
     <input
       type="text"
       placeholder="Search.."
       name="search2"
       style="width: 22vw;height: 52px;"
+      list="searchbar"
     />
+
+    <datalist id="searchbar">
+      <option value="Iphone 13 pro">
+      <option value="Iphone 13 ">
+      <option value="Iphone 11 pro">
+      <option value="Iphone 12 pro">
+      <option value="Iphone 12 ">
+      <option value="Iphone 14 pro max">
+    </datalist>
 
     <button type="submit">
       <fa-icon
@@ -100,14 +72,14 @@
 
 
 <div class="container row justify-content-center m-auto">
-  <div class="card mx-4 mt-5" style="width: 18rem" *ngFor="let array of arr">
+  <div class="card mx-4 mt-5" style="width: 18rem" *ngFor="let array of arr2">
     <img 
       [src]="array.image"
  
       class="card-img-top"
       alt="Some issue Occour"
     />
-    <div class="card-body">
+    <div class="card-body mb-0" >
       <h3 class="card-title">{{array.name}}</h3>
       <h3 class="card-title">{{array.specification}}</h3>
       <h5>{{ array.price }}</h5>
@@ -115,13 +87,14 @@
         To Achive Your goals you need a secure partner that is here.. A person
         who "Think Different" with others can only live the different life.
       </p>
-      <div class="row">
+      <div class="row "  >
         <h4 style="color: green">Add to cart</h4>
 
         <div
-          class="btn btn-primary"
+          class="btn btn-primary "
+        
           *ngIf="array.Quantity == 0; else groupButtons"
-          (click)="quantityChange(array.id, '1');subTotalUpDate(array.price,'+');"
+          (click)="addItem(array.id,'1','+',array.price)"
         >
           Add
         </div>
@@ -154,3 +127,6 @@
     </div>
   </div>
 </div>
+
+
+<!-- <button class="btn btn-primary" (click)="getProduct()">get Data</button> -->
