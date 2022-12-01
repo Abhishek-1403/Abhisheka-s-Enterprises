@@ -5,6 +5,7 @@ import { CartComponent } from './cart/cart.component';
 import { HomeComponent } from './home/home.component';
 import { ListOfItemsComponent } from './list-of-items/list-of-items.component';
 import { LoginComponent } from './login/login.component';
+import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
 import { SignupAsSellerComponent } from './signup/signup-as-seller/signup-as-seller.component';
 import { SignupComponent } from './signup/signup.component';
 import { SingupAsPurchaserComponent } from './signup/singup-as-purchaser/singup-as-purchaser.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   },
   { path: 'signup/signupasprovider', component: SignupAsSellerComponent },
   { path: 'signup/signupasuser', component: SingupAsPurchaserComponent },
+  { path: 'manageorders', component: ManageOrdersComponent },
   { path: '**', component: HomeComponent },
 ];
 

@@ -7,6 +7,7 @@
     </div>
     <div class="dec">
       <li *ngIf="isAuthenticated" (click)="logout()">Logout</li>
+      <li routerLink="manageorders" routerLinkActive="active" *ngIf="isAuthenticated">Manage-Orders</li>
       <li routerLink="login" routerLinkActive="active" *ngIf="!isAuthenticated">Login</li>
       <li routerLink="signup" routerLinkActive="active" *ngIf="!isAuthenticated ">SignUp</li>
     </div>

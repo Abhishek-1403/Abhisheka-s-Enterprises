@@ -16,6 +16,7 @@ import { SignupAsSellerComponent } from './signup/signup-as-seller/signup-as-sel
 import { AuthenticationService } from './authentication.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
     CartComponent,
          SingupAsPurchaserComponent,
          SignupAsSellerComponent,
-         LoadingSpinnerComponent
+         LoadingSpinnerComponent,
+         ManageOrdersComponent
   ],
   imports: [
     BrowserModule,

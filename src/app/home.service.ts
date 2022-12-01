@@ -22,11 +22,14 @@ export class HomeService {
     specification: string;
   }[] = this.arr2;
 
-  firebaseUrl =
-    'https://abhisheka-s-enterprises-default-rtdb.firebaseio.com/Phones%20Product.json';
+  firebaseUrl1 ='https://abhisheka-s-enterprises-default-rtdb.firebaseio.com/Phones%20Product.json';
+  firebaseUrlEle = 'https://abhisheka-s-enterprises-default-rtdb.firebaseio.com/Electronics.json';
   constructor(private http: HttpClient) {
     this.getData();
+    this.getDataEle();
+
   }
+
 
  
 
@@ -42,13 +45,23 @@ export class HomeService {
   }
 
   getData() {
-    return this.http.get(this.firebaseUrl).subscribe(
+    return this.http.get(this.firebaseUrl1).subscribe(
       (response: any) => {
         Object.keys(response).forEach((obj) => {
           this.arr2.push(response[obj]);
         });
       },
       (err: any) => console.log(err)
+    );
+  }
+  getDataEle() {
+    return this.http.get(this.firebaseUrlEle).subscribe(
+      (response1: any) => {
+        Object.keys(response1).forEach((obj) => {
+          this.arr2.push(response1[obj]);
+        });
+      },
+      (err1: any) => console.log(err1)
     );
   }
   getMyProducts() {

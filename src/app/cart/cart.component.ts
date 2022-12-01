@@ -22,7 +22,6 @@ export class CartComponent implements OnInit {
     Quantity: number;
   }[] = [];
 
-
   cartArray: {
     id: number;
     name: string;
@@ -30,11 +29,16 @@ export class CartComponent implements OnInit {
     specification: string;
     image: string;
     Quantity: number;
-  }[] = this.arr.filter(function (ele) {
-    return ele.Quantity > 0;
-  });
+  }[] =[];
+  cartArrayUpdate(){
+    this.cartArray=this.arr.filter(function (ele:any) {
+      return ele.Quantity > 0;
+    });
+  }
+  
+  
  
-
+  
   constructor(
     private homeService: HomeService,
     private addToCartService: AddToCartService
@@ -42,6 +46,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.arr = this.homeService.arr;
+    this.cartArrayUpdate();
   }
 
   faCcMastercard = faCcMastercard;
@@ -93,14 +98,9 @@ export class CartComponent implements OnInit {
   }
 
 
+  addToFirebase(){
+    this.addToCartService.cartArrayUpdate();
+    this.addToCartService.addOrderToFirebase();
+  }
 
-  // totalCartItemUpdate() {
-  //   console.log('fn called');
-  //   console.log(this.cartArray.length);
-  //   for (let i = 0; i < this.cartArray.length; i++) {
-  //     this.cartItemNo += this.cartArray[i].Quantity;
-  //     console.log(this.cartItemNo);
-  //     console.log('Abhishek Gupta');
-  //   }
-  // }
 }
