@@ -45,6 +45,7 @@ export class HomeService {
   }
 
   getData() {
+    // console.log(this.arr2);
     return this.http.get(this.firebaseUrl1).subscribe(
       (response: any) => {
         Object.keys(response).forEach((obj) => {
@@ -55,6 +56,7 @@ export class HomeService {
     );
   }
   getDataEle() {
+    // console.log(this.arr2);
     return this.http.get(this.firebaseUrlEle).subscribe(
       (response1: any) => {
         Object.keys(response1).forEach((obj) => {

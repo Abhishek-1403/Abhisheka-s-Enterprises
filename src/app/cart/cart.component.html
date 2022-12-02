@@ -139,12 +139,12 @@
                       class="mx-2"
                     ></fa-icon>
 
-                    <form class="mt-4" #f="ngForm">
+                    <form class="mt-4" #f="ngForm" (ngSubmit)="addToFirebase(f)">
                       <div class="form-outline form-white mb-4">
                         <div
                           class="alert alert-danger"
                           *ngIf="
-                            cardHolderName.touched && cardHolderName.invalid
+                            name.touched && name.invalid
                           "
                         >
                           Card Holder's Name cannot be Empty
@@ -155,10 +155,10 @@
                           class="form-control form-control-lg"
                           siez="17"
                           placeholder="Cardholder's Name"
-                          name="cardHolderName"
+                          name="name"
                           required
                           ngModel
-                          #cardHolderName="ngModel"
+                          #name="ngModel"
                         />
                         <label class="form-label" for="typeName"
                           >Cardholder's Name</label
@@ -269,10 +269,11 @@
                     </div>
 
                     <button
-                      type="button"
+                      type="submit"
                       class="btn btn-info btn-block btn-lg"
                       [disabled]="f.invalid"
-                      (click)="addToFirebase()"
+                      (click)="addToFirebase(f)"
+                    
                     >
                       <div class="m-auto justify-content-center">
                         <span class="mx-5"

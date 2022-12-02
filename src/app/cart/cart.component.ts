@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { faCcMastercard, faOpera } from '@fortawesome/free-brands-svg-icons';
 import { faCcVisa } from '@fortawesome/free-brands-svg-icons';
 import { faCcPaypal } from '@fortawesome/free-brands-svg-icons';
@@ -91,15 +92,23 @@ export class CartComponent implements OnInit {
    
   }
 
-
+  totalItem =0;
   totalCartItemUpdate(){
-    return  this.addToCartService.totalCartItemUpdate();
+    this.totalItem= this.addToCartService.totalCartItemUpdate();
+    return this.totalItem;
    
   }
 
 
-  addToFirebase(){
-    this.addToCartService.cartArrayUpdate();
+  addToFirebase(form:NgForm){
+    console.log("addTo FIrebase is called..");
+    const name = form.value.name;
+    const cardNo = form.value.cardNumber;
+    const totalItem = this.totalItem;
+    const price = this.subTotal;
+    const status = "Confirm";
+
+    this.addToCartService.cartArrayUpdate(name,cardNo,totalItem,price,status);
     this.addToCartService.addOrderToFirebase();
   }
 
