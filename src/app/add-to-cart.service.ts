@@ -56,12 +56,7 @@ export class AddToCartService {
   }
 
   // firebaseStorageUrl ="https://abhisheka-s-enterprises-default-rtdb.firebaseio.com/Orders";
-  orderData:{
-    name:string,
-    totalItem:number,
-    price:number,
-    status:string
-  }[]=[];
+orderData: {name: string,totalItem: number, price: number, status: string}[]=[];
 
   cartArray: {
     id: number;
@@ -76,7 +71,7 @@ export class AddToCartService {
     this.cartArray=this.homeservice.arr.filter(function (ele:any) {
       return ele.Quantity > 0;
     });
-    // this.orderData.splice(0,this.orderData.length)
+    this.orderData.splice(0,this.orderData.length);
     this.orderData.push({name,totalItem,price,status});
     console.log(this.orderData);
 

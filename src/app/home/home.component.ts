@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
   status = false;
   addItem(id: number, op1: string, op2: string, price: number) {
     this.status = this.auth.isLogin;
-    console.log(this.status);
+    //console.log(this.status);
 
     this.status
       ? (this.quantityChange(id, op1), this.subTotalUpDate(price, op2))

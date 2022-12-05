@@ -62,6 +62,7 @@ export class HomeService {
         Object.keys(response1).forEach((obj) => {
           this.arr2.push(response1[obj]);
         });
+        console.log(this.arr2);
       },
       (err1: any) => console.log(err1)
     );
