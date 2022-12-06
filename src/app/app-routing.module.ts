@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthenticationGuard } from './authentication-guard';
+import { AuthenticationGuard } from './shared/authentication-guard';
 import { CartComponent } from './cart/cart.component';
 import { HomeComponent } from './home/home.component';
 import { ListOfItemsComponent } from './list-of-items/list-of-items.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './login-signup/login/login.component';
 import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
-import { SignupAsSellerComponent } from './signup/signup-as-seller/signup-as-seller.component';
-import { SignupComponent } from './signup/signup.component';
-import { SingupAsPurchaserComponent } from './signup/singup-as-purchaser/singup-as-purchaser.component';
+import { SignupAsSellerComponent } from './login-signup/signup/signup-as-seller/signup-as-seller.component';
+import { SignupComponent } from './login-signup/signup/signup.component';
+import { SingupAsPurchaserComponent } from './login-signup/signup/singup-as-purchaser/singup-as-purchaser.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -20,7 +20,7 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent,
-    canActivate: [AuthenticationGuard]
+    canActivate: [AuthenticationGuard],
   },
   { path: 'signup/signupasprovider', component: SignupAsSellerComponent },
   { path: 'signup/signupasuser', component: SingupAsPurchaserComponent },

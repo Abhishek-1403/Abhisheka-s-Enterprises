@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../authentication.service';
+import { AuthenticationService } from '../../shared/authentication.service';
+
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,10 @@ export class LoginComponent implements OnInit {
 
   @ViewChild('f') loginForm: any = NgForm;
 
-  constructor(private authService: AuthenticationService,private router:Router) {}
+  constructor(
+    private authService: AuthenticationService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
 
@@ -22,7 +26,6 @@ export class LoginComponent implements OnInit {
 
   goToSignUp() {}
   onSubmit(form: NgForm) {
-    
     if (!form.valid) {
       return;
     }
@@ -30,15 +33,13 @@ export class LoginComponent implements OnInit {
     const password = form.value.password;
 
     this.isLoading = true;
-    
-   
+
     this.authService.login(email, password).subscribe(
       (resData) => {
         this.isLoading = false;
         this.router.navigate(['/home']);
       },
       (errorMessage) => {
-      
         this.error = errorMessage;
         this.isLoading = false;
       }

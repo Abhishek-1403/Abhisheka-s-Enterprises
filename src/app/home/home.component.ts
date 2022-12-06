@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeService } from '../home.service';
+import { HomeService } from '../shared/home.service';
 import { faSearchengin } from '@fortawesome/free-brands-svg-icons';
-import { AddToCartService } from '../add-to-cart.service';
-import { AuthenticationService } from '../authentication.service';
+import { AddToCartService } from '../cart/add-to-cart.service';
+import { AuthenticationService } from '../shared/authentication.service';
 import { Router } from '@angular/router';
 
 @Component({

@@ -1,39 +1,40 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { AuthenticationService } from './authentication.service';
-import { HomeService } from './home.service';
+
+import { AuthenticationService } from './shared/authentication.service';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit,OnDestroy {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'AbhishekasEnterprises';
 
   isAuthenticated = false;
-  
 
-  private userSub:any;
-  constructor(private authService: AuthenticationService,private homeService:HomeService) {}
+  private userSub: any;
+  constructor(
+    private authService: AuthenticationService,
+   
+  ) {}
 
-  ngOnInit() {  
-
+  ngOnInit() {
     // this.homeService.getData();
 
     this.userSub = this.authService.userToken.subscribe((user: any) => {
-      this.isAuthenticated = !!user; 
-      
+      this.isAuthenticated = !!user;
+
       console.log(!user);
       console.log(!!user);
     });
     this.authService.autoLogin();
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.userSub.unsubscribe();
   }
-  logout(){
+  logout() {
     this.authService.logout();
   }
 }

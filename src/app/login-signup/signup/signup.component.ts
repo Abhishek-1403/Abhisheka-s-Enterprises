@@ -6,9 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  logoUrl="assets/logo.png";
-  constructor() { }
 
+  constructor() { }
+  logoUrl="assets/logo.png";
   ngOnInit(): void {
   }
 

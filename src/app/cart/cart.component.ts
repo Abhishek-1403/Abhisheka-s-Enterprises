@@ -5,8 +5,8 @@ import { faCcVisa } from '@fortawesome/free-brands-svg-icons';
 import { faCcPaypal } from '@fortawesome/free-brands-svg-icons';
 import { faCcAmex } from '@fortawesome/free-brands-svg-icons';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { AddToCartService } from '../add-to-cart.service';
-import { HomeService } from '../home.service';
+import { AddToCartService } from './add-to-cart.service';
+import { HomeService } from '../shared/home.service';
 
 @Component({
   selector: 'app-cart',
@@ -30,16 +30,13 @@ export class CartComponent implements OnInit {
     specification: string;
     image: string;
     Quantity: number;
-  }[] =[];
-  cartArrayUpdate(){
-    this.cartArray=this.arr.filter(function (ele:any) {
+  }[] = [];
+  cartArrayUpdate() {
+    this.cartArray = this.arr.filter(function (ele: any) {
       return ele.Quantity > 0;
     });
   }
-  
-  
- 
-  
+
   constructor(
     private homeService: HomeService,
     private addToCartService: AddToCartService
@@ -89,27 +86,29 @@ export class CartComponent implements OnInit {
     this.addToCartService.disCount();
     this.addToCartService.Gst();
     this.addToCartService.totalPrize();
-   
   }
 
-  totalItem =0;
-  totalCartItemUpdate(){
-    this.totalItem= this.addToCartService.totalCartItemUpdate();
+  totalItem = 0;
+  totalCartItemUpdate() {
+    this.totalItem = this.addToCartService.totalCartItemUpdate();
     return this.totalItem;
-   
   }
 
-
-  addToFirebase(form:NgForm){
-    console.log("addTo FIrebase is called..");
+  addToFirebase(form: NgForm) {
+    console.log('addTo FIrebase is called..');
     const name = form.value.name;
     const cardNo = form.value.cardNumber;
     const totalItem = this.totalItem;
     const price = this.subTotal;
-    const status = "Confirm";
+    const status = 'Confirm';
 
-    this.addToCartService.cartArrayUpdate(name,cardNo,totalItem,price,status);
+    this.addToCartService.cartArrayUpdate(
+      name,
+      cardNo,
+      totalItem,
+      price,
+      status
+    );
     this.addToCartService.addOrderToFirebase();
   }
-
 }

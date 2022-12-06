@@ -1,20 +1,22 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthenticationService } from 'src/app/authentication.service';
+import { AuthenticationService } from 'src/app/shared/authentication.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'signup-as-seller',
-  templateUrl: './signup-as-seller.component.html',
-  styleUrls: ['./signup-as-seller.component.css']
+  selector: 'singup-as-purchaser',
+  templateUrl: './singup-as-purchaser.component.html',
+  styleUrls: ['./singup-as-purchaser.component.css'],
 })
-export class SignupAsSellerComponent implements OnInit {
-  // @ViewChild ('f') sellerForm:any=NgForm
-  constructor( private authService: AuthenticationService,
-    private router: Router ) { }
+export class SingupAsPurchaserComponent implements OnInit {
+  //@ViewChild ('f') userForm:any=NgForm;
+  constructor(
+    private authService: AuthenticationService,
+    private router: Router
+  ) {}
+  // constructor(){}
 
-  ngOnInit() {}
-
+  ngOnInit(): void {}
 
   error: string = '';
   isLoading = false;
@@ -45,6 +47,4 @@ export class SignupAsSellerComponent implements OnInit {
 
     form.reset();
   }
-
 }
-
