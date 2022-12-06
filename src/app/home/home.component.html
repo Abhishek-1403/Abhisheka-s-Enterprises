@@ -1,42 +1,38 @@
-<nav
-  
-  style="background-color: rgba(255, 255, 0, 0.699);"
->
-  <ul style="background-color: pink" id="navbar">
-    <div class="row">
-      <div class="column">
-        <li>
-          <img
-            [src]="urlLeftSide"
-            alt="Happy to see You Here"
-            height="200"
-            width="476"
-          />
-        </li>
-      </div>
-      <div class="column2">
-        <li>
-          <img
-            [src]="urlNavBackGround"
-            alt="Welcome In Abhisheka's Enterprises"
-            height="200"
-            width="975"
-          />
-        </li>
-      </div>
-      <div class="column">
-        <li>
-          <img
-            [src]="urlRightSide"
-            alt="Happy to see You Here"
-            height="200"
-            width="476"
-          />
-        </li>
-      </div>
+<nav   style="background-color:yellow;padding-top: 5px; padding-bottom: 5px;">
+  <marquee behavior="" direction="ltr" >
+    <div  class="m-auto slider">
+    <span style="font-size: 2em;color: brown;">!!! Welcome in Abhisheka's Enterprises...</span>
+    <span style="font-size: 2em;color: brown;padding-left: 30vw;">!!! We are happy to see you here...</span>
+    <span style="font-size: 2em;color: brown;padding-left: 30vw;">!!! Your most trustable Partner...</span>
     </div>
-  </ul>
+  </marquee>
 </nav>
+<!-- Carousel wrapper --> 
+<div id="carouselBasicExample" class="carousel slide carousel-fade" data-mdb-ride="carousel" style="background-color:black"> 
+<ngb-carousel
+	#carousel
+	[interval]="2000"
+	[pauseOnHover]="pauseOnHover"
+	[pauseOnFocus]="pauseOnFocus"
+	
+>
+	<ng-template ngbSlide *ngFor="let img of images; index as i">
+		<div class="carousel-caption">
+			<h3 style="color:yellowgreen">Today's best price sale No. {{i + 1}} </h3>
+		</div>
+		<a href="https://www.google.fr/?q=Number+{{i+1}}" target="_blank" rel="nofollow noopener noreferrer">
+			<div class="picsum-img-wrapper">
+				<img [src]="img" alt="My image {{i + 1}} description" class="d-block w-80 m-auto mt-2 mb-5"  />
+			</div>
+		</a>
+	</ng-template>
+</ngb-carousel>
+
+</div>
+<!-- Carousel wrapper --> 
+
+
+
 <form
   class="example"
   action="/action_page.php"

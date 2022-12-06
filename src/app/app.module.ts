@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ListOfItemsComponent } from './list-of-items/list-of-items.component';
 import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
     HttpClientModule,
     SharedModule,
     CartModule,
-    LoginSignupModule
+    LoginSignupModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent],

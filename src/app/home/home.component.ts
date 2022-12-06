@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HomeService } from '../shared/home.service';
 import { faSearchengin } from '@fortawesome/free-brands-svg-icons';
 import { AddToCartService } from '../cart/add-to-cart.service';
 import { AuthenticationService } from '../shared/authentication.service';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
@@ -17,6 +18,30 @@ export class HomeComponent implements OnInit {
   urlNavBackGround = './assets/navCenterBackGroundImage.jpg';
   faSearchengin = faSearchengin;
 
+  
+  images = [
+    '../assets/saleProduct1.png',
+    '../assets/saleProduct2.png',
+    '../assets/saleProduct5.png',
+    '../assets/saleProduct6.png',
+    '../assets/saleProduct4.png',
+  ];
+
+	paused = false;
+	unpauseOnArrow = false;
+	pauseOnIndicator = false;
+	pauseOnHover = true;
+	pauseOnFocus = true;
+
+
+  
+  
+  
+  
+  
+  
+  
+  
   arr2: {
     id: number;
     name: string;
