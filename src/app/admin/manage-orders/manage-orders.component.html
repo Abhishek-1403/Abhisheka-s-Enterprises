@@ -1,0 +1,63 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<table  id="table">
+  <div class="card mb-3" *ngFor="let sp of cartArray">
+ 
+    <div class="card-body" style="background-color: teal">
+      <tr>
+        <div class="d-flex" >
+          <td id="td">
+            <div >
+              <h5 class="mb-0" style="color: white" id="h5">
+                UserName: <br>
+                <span style="color: lightgreen">{{ sp.name }}</span>
+              </h5>
+            </div>
+          </td>
+          <td id="td">
+            <div>
+              <h5 class="mb-0" style="color: white;" id="h5">
+                User Email: <br>
+                <span style="color: lightgreen">{{ sp.email }}</span>
+              </h5>
+            </div>
+          </td>
+          <td id="td">
+            <div >
+              <h5 class="mb-0" style="color: white" id="h5">
+                Mob.No: <br>
+                <span style="color: lightgreen">{{ sp.mobNo }}</span>
+              </h5>
+            </div>
+          </td>
+          <td id="td">
+            <div >
+              <h5 class="mb-0" style="color: white" id="h5">
+                Status: <br>
+                <span style="color: yellow"> {{ sp.status }} </span>
+              </h5>
+            </div>
+          </td>
+          <td id="td">
+            <div >
+              <h5 class="mb-0" style="color: white" id="h5">
+                TotalPrice: <br>
+                <span style="color: lightgreen">{{ sp.price }}</span>
+              </h5>
+            </div>
+          </td>
+          <td id="td">
+            <div >
+              <h5 class="mb-0" style="color: white" id="h5">
+                Total Item's: <br>
+                <span style="color: lightgreen">{{ sp.totalItem }}</span>
+              </h5>
+            </div>
+          </td>
+          <td id="td">
+            <button class="btn btn-info" id="h5">Order Details</button>
+          </td>
+        </div>
+      </tr>
+    </div>
+  </div>
+</table>

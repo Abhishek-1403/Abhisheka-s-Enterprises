@@ -42,7 +42,8 @@ export class AddToCartService {
   }
 
   addOrderToFirebase() {
-    this.http.post(this.firebaseStorageUrl, this.orderData).subscribe(
+    const order = this.orderData[0];
+    this.http.post(this.firebaseStorageUrl, order).subscribe(
       (response) => {
         console.log(response);
       },
@@ -55,6 +56,8 @@ export class AddToCartService {
   // firebaseStorageUrl ="https://abhisheka-s-enterprises-default-rtdb.firebaseio.com/Orders";
   orderData: {
     name: string;
+    email:string;
+    mobNo:number;
     totalItem: number;
     price: number;
     status: string;
@@ -71,6 +74,8 @@ export class AddToCartService {
   cartArrayUpdate(
     name: string,
     cardno: number,
+    email:string,
+    mobNo:number,
     totalItem: number,
     price: number,
     status: string
@@ -79,7 +84,7 @@ export class AddToCartService {
       return ele.Quantity > 0;
     });
     this.orderData.splice(0, this.orderData.length);
-    this.orderData.push({ name, totalItem, price, status });
-    console.log(this.orderData);
+    this.orderData.push({ name,email,mobNo, totalItem, price, status });
+    // console.log(this.orderData);
   }
 }

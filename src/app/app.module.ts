@@ -11,15 +11,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ListOfItemsComponent } from './list-of-items/list-of-items.component';
-import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ListOfItemsComponent, 
-    ManageOrdersComponent,
+    ListOfItemsComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -30,7 +30,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SharedModule,
     CartModule,
     LoginSignupModule,
-    NgbModule
+    NgbModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent],

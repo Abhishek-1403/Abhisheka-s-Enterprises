@@ -1,8 +1,7 @@
 nav{
     width: 100%;
     display:flex;
-    font-size: 24px;
-    flex-wrap: wrap;
+    font-size: 20px;
     padding: 5px;
     justify-content: space-between;
     

@@ -36,8 +36,15 @@
                   </div>
                 </div>
 
-                <div class="card mb-3" *ngFor="let sp of arr">
-                  <div class="card-body" *ngIf="sp.Quantity > 0">
+                <div class="card card-body align-item-center" *ngIf="totalItem==0">
+                  <img [src]="urlEmptyCart" alt="Your Cart is Empty looks like you not add anything in your cart yet goto  Home add add Now">
+                  <div style="text-align: center">
+                  <button class="btn btn-primary px-5 py-3" (click)="gotoHome()"> Go Home</button>
+                </div>
+                </div>
+
+                <div class="" *ngFor="let sp of arr">
+                  <div class="card mb-3 card-body" *ngIf="sp.Quantity > 0">
                     <div class="d-flex justify-content-between">
                       <div class="d-flex flex-row align-items-center">
                         <div>
@@ -64,8 +71,7 @@
                             class="btn btn-outline-primary"
                             (click)="
                               quantityChange(sp.id, '-1');
-                              subTotalUpDate(sp.price, '-');
-                              
+                              subTotalUpDate(sp.price, '-')
                             "
                           >
                             -
@@ -78,8 +84,7 @@
                             class="btn btn-outline-primary"
                             (click)="
                               quantityChange(sp.id, '1');
-                              subTotalUpDate(sp.price, '+');
-                              
+                              subTotalUpDate(sp.price, '+')
                             "
                           >
                             +
@@ -97,9 +102,7 @@
                     </div>
                   </div>
                 </div>
-                <div style="text-align:center" >
-                  <button class="btn btn-primary">Placed Order</button>  
-                </div>
+                
               </div>
               <div class="col-lg-5">
                 <div class="card bg-primary text-white rounded-3">
@@ -139,13 +142,66 @@
                       class="mx-2"
                     ></fa-icon>
 
-                    <form class="mt-4" #f="ngForm" (ngSubmit)="addToFirebase(f)">
+                    <form
+                      class="mt-4"
+                      #f="ngForm"
+                      (ngSubmit)="addToFirebase(f)"
+                    >
+                      <div class="row mb-4">
+                        <div class="col-md-6">
+                          <div class="form-outline form-white">
+                            <div
+                              class="alert alert-danger"
+                              *ngIf="email.touched && email.invalid"
+                            >
+                              Email is Required
+                            </div>
+                            <input
+                              type="email"
+                              id="email"
+                              class="form-control form-control-lg"
+                              placeholder="me@gmail.com"
+                              id="exp"
+                              name="email"
+                              required
+                              email
+                              ngModel
+                              #email="ngModel"
+                            />
+                            <label class="form-label" for="email"
+                              >Email Id</label
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-outline form-white">
+                            <div
+                              class="alert alert-danger"
+                              *ngIf="mobNo.touched && mobNo.invalid"
+                            >
+                              10 Digit Mobile Number is Required
+                            </div>
+                            <input
+                              type="text"
+                              id="mobNo"
+                              class="form-control form-control-lg"
+                              placeholder="9999000058"
+                              minlength="10"
+                              maxlength="10"
+                              name="mobNo"
+                              required
+                              ngModel
+                              #mobNo="ngModel"
+                            />
+                            <label class="form-label" for="MobNo">Mob.No</label>
+                          </div>
+                        </div>
+                      </div>
+
                       <div class="form-outline form-white mb-4">
                         <div
                           class="alert alert-danger"
-                          *ngIf="
-                            name.touched && name.invalid
-                          "
+                          *ngIf="name.touched && name.invalid"
                         >
                           Card Holder's Name cannot be Empty
                         </div>
@@ -251,17 +307,16 @@
                       <p class="mb-2">Subtotal</p>
                       <p class="mb-2">{{ getCartSubTotal() }}</p>
                     </div>
-                    
+
                     <div class="d-flex justify-content-between">
                       <p class="mb-2">Discount 15% Flat</p>
                       <p class="mb-2">{{ getCartDiscount() }}</p>
                     </div>
-                    
+
                     <div class="d-flex justify-content-between">
                       <p class="mb-2">GST 18%</p>
                       <p class="mb-2">{{ getCartGst() }}</p>
                     </div>
-
 
                     <div class="d-flex justify-content-between mb-4">
                       <p class="mb-2">Total Prize To Be Paid</p>
@@ -273,7 +328,6 @@
                       class="btn btn-info btn-block btn-lg"
                       [disabled]="f.invalid"
                       (click)="addToFirebase(f)"
-                    
                     >
                       <div class="m-auto justify-content-center">
                         <span class="mx-5"

@@ -7,6 +7,7 @@ import { faCcAmex } from '@fortawesome/free-brands-svg-icons';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { AddToCartService } from './add-to-cart.service';
 import { HomeService } from '../shared/home.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -37,9 +38,11 @@ export class CartComponent implements OnInit {
     });
   }
 
+
   constructor(
     private homeService: HomeService,
-    private addToCartService: AddToCartService
+    private addToCartService: AddToCartService,
+    private router:Router
   ) {}
 
   ngOnInit(): void {
@@ -52,6 +55,11 @@ export class CartComponent implements OnInit {
   faCcPaypal = faCcPaypal;
   faCcAmex = faCcAmex;
   faArrowLeft = faArrowLeft;
+
+  urlEmptyCart = '../assets/emptyCartImage.webp';
+  gotoHome(){
+    this.router.navigate(['home']);
+  }
 
   quantityChange(id: number, operation: string) {
     if (this.arr[id].Quantity === 0) {
@@ -101,10 +109,14 @@ export class CartComponent implements OnInit {
     const totalItem = this.totalItem;
     const price = this.subTotal;
     const status = 'Confirm';
+    const email = form.value.email;
+    const mobNo = form.value.mobNo;
 
     this.addToCartService.cartArrayUpdate(
       name,
       cardNo,
+      email,
+      mobNo,
       totalItem,
       price,
       status

@@ -14,7 +14,8 @@ import { AddToCartService } from './add-to-cart.service';
     CommonModule,
     FormsModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    
 
     
   ],

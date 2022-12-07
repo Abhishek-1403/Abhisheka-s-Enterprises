@@ -5,7 +5,7 @@ import { CartComponent } from './cart/cart.component';
 import { HomeComponent } from './home/home.component';
 import { ListOfItemsComponent } from './list-of-items/list-of-items.component';
 import { LoginComponent } from './login-signup/login/login.component';
-import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
+import { ManageOrdersComponent } from './admin/manage-orders/manage-orders.component';
 import { SignupAsSellerComponent } from './login-signup/signup/signup-as-seller/signup-as-seller.component';
 import { SignupComponent } from './login-signup/signup/signup.component';
 import { SingupAsPurchaserComponent } from './login-signup/signup/singup-as-purchaser/singup-as-purchaser.component';

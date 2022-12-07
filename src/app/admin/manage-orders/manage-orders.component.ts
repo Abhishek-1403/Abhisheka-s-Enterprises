@@ -17,6 +17,8 @@ export class ManageOrdersComponent implements OnInit {
 
   cartArray: {
     name:string,
+    email:string,
+    mobNo:number,
     totalItem:number,
     price:number,
     status:string

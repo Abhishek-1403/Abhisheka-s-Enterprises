@@ -1,0 +1,16 @@
+#td{
+   width:100%;
+    padding-left:4vw;
+    padding-right: 4vw;
+    font-size: 1vw;
+    text-align: left;
+}
+#table{
+    width:device-width;
+    border-spacing: 2px,20vw;
+    border-collapse: separate;
+    border: 5px solid yellowgreen;
+}
+#h5{
+    font-size: 1vw;
+}

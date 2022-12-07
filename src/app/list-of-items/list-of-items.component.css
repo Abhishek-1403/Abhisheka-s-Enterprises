@@ -1,19 +1,24 @@
 #xy{
     background-color:white;
+    width:100%;
+    overflow:auto;
+    font-size: 20px;
+    
 }
 
 form.example input[type=text] {
-    padding: 10px;
+    padding: 1vw;
     font-size: 17px;
     border: 1px solid grey;
-    float: left;
+    /* float: left; */
     width: 75%;
     background: #f1f1f1;
+    margin-left: auto;
   }
   
   form.example button {
   
-    width: 25%;
+    width: 20%;
     padding: 10px;
     background: #2196F3;
     color: white;
@@ -22,4 +27,11 @@ form.example input[type=text] {
     border-left: none;
     cursor: pointer;
     font-family: Arial;
+  }
+  #form{
+    width:100%;
+  }
+
+  h5{
+    font-size: 16px;
   }
