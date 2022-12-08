@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -10,6 +11,7 @@ import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
   imports: [
     CommonModule,
     HttpClientModule,
+    SharedModule
 
   ],
   exports:[ManageOrdersComponent]

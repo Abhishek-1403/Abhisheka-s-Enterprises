@@ -1,8 +1,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<table  id="table">
+
+
+<div  *ngIf="isLoading" style="text-align:center">
+    <loading-spinner></loading-spinner>
+</div>
+<table  id="table" *ngIf="!isLoading">
   <div class="card mb-3" *ngFor="let sp of cartArray">
  
-    <div class="card-body" style="background-color: teal">
+    <div class="card-body" style="background-color: teal;">
       <tr>
         <div class="d-flex" >
           <td id="td">
@@ -54,7 +59,7 @@
             </div>
           </td>
           <td id="td">
-            <button class="btn btn-info" id="h5">Order Details</button>
+            <button class="btn btn-info" id="h5">Order_Details</button>
           </td>
         </div>
       </tr>

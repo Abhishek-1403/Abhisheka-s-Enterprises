@@ -33,15 +33,9 @@ export class HomeComponent implements OnInit {
 	pauseOnHover = true;
 	pauseOnFocus = true;
 
+  
+  isLoading=false;
 
-  
-  
-  
-  
-  
-  
-  
-  
   arr2: {
     id: number;
     name: string;
@@ -60,16 +54,14 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.arr2 = this.homeService.getMyProducts();
-    // this.getProduct();
-    // this.arr = this.homeService.arr2;
-    // this.arr2 = this.homeService.arr;
-    //console.log(this.arr2);
+   
   }
+
 
   status = false;
   addItem(id: number, op1: string, op2: string, price: number) {
     this.status = this.auth.isLogin;
-    //console.log(this.status);
+
 
     this.status
       ? (this.quantityChange(id, op1), this.subTotalUpDate(price, op2))
@@ -92,10 +84,4 @@ export class HomeComponent implements OnInit {
     this.addToCartService.totalCartItemUpdate();
   }
 
-  // getProduct(){
-  //   this.homeService.getData().subscribe(
-  //     (response:any )=> console.log(response),
-  //     (err:any) => console.log(err)
-  //   )
-  // }
 }

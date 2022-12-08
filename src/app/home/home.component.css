@@ -67,3 +67,11 @@ form.example button {
   cursor: pointer;
   font-family: Arial;
 }
+#carouselBasicExample{
+  width:100%;
+
+}
+#image{
+  width:50%;
+  border:10px solid cyan;
+}

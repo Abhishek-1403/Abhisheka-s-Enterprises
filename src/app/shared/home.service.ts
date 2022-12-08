@@ -29,42 +29,52 @@ export class HomeService {
     this.getDataEle();
 
   }
-
-
- 
-
   QuantityChange(id: number, operation: string) {
-    if (operation == '1') {
-      this.arr[id].Quantity++;
-      console.log(this.arr[id]);
+    for(let i =0;i<this.arr.length;i++){
+      if(this.arr[i].id==id){
+        if (operation == '1') {
+          this.arr[i].Quantity++;
+          
+        }
+        if (operation == '-1') {
+          this.arr[i].Quantity--;
+         
+        }
+      }
     }
-    if (operation == '-1') {
-      this.arr[id].Quantity--;
-      console.log(this.arr[id]);
-    }
+
+
+
+    
   }
 
+ 
   getData() {
-    // console.log(this.arr2);
+    
     return this.http.get(this.firebaseUrl1).subscribe(
       (response: any) => {
         Object.keys(response).forEach((obj) => {
           this.arr2.push(response[obj]);
         });
       },
-      (err: any) => console.log(err)
+      (err: any) => {
+       
+        console.log(err);}
     );
   }
   getDataEle() {
-    // console.log(this.arr2);
+    
     return this.http.get(this.firebaseUrlEle).subscribe(
       (response1: any) => {
         Object.keys(response1).forEach((obj) => {
           this.arr2.push(response1[obj]);
         });
-        console.log(this.arr2);
+       
+   
       },
-      (err1: any) => console.log(err1)
+      (err1: any) =>{ 
+       
+        console.log(err1);}
     );
   }
   getMyProducts() {

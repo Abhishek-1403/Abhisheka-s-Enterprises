@@ -1,37 +1,64 @@
-#xy{
-    background-color:white;
-    width:100%;
-    overflow:auto;
-    font-size: 20px;
-    
+#xy {
+  background-color: white;
+  width: 100%;
+  overflow: auto;
 }
 
-form.example input[type=text] {
-    padding: 1vw;
-    font-size: 17px;
-    border: 1px solid grey;
-    /* float: left; */
-    width: 75%;
-    background: #f1f1f1;
-    margin-left: auto;
-  }
-  
-  form.example button {
-  
-    width: 20%;
-    padding: 10px;
-    background: #2196F3;
-    color: white;
-    font-size: 17px;
-    border: 1px solid grey;
-    border-left: none;
-    cursor: pointer;
-    font-family: Arial;
-  }
-  #form{
-    width:100%;
-  }
+form.example input[type="text"] {
+  padding: 1vw;
+  font-size: 17px;
+  border: 1px solid grey;
+  /* float: left; */
+  width: 75%;
+  background: #f1f1f1;
+  margin-left: auto;
+}
 
-  h5{
-    font-size: 16px;
-  }
+form.example button {
+  width: 20%;
+  padding: 10px;
+  background: #2196f3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+  font-family: Arial;
+}
+#form {
+  width: 100%;
+}
+
+h5 {
+  font-size: 16px;
+}
+h4 {
+  font-size: 18px;
+  padding-right: 30px;
+}
+b {
+  padding-right: 30px;
+}
+
+
+
+/* Rating Star */
+i {
+  font-size: 1.5rem;
+  padding-right: 0.1rem;
+  color: #b0c4de;
+}
+.filled {
+  color:yellowgreen;
+}
+.low {
+  color: #deb0b0;
+}
+.filled.low {
+  color: teal;
+}
+/* Rating Star */
+
+#uniqueBtn {
+  align-self: flex-start;
+}

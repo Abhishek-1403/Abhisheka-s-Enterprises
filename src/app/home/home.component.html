@@ -18,11 +18,11 @@
 >
 	<ng-template ngbSlide *ngFor="let img of images; index as i">
 		<div class="carousel-caption">
-			<h3 style="color:yellowgreen">Today's best price sale No. {{i + 1}} </h3>
+			<h3 style="color:teal ;font-size:2vw;" >Today's best price sale No. {{i + 1}} </h3>
 		</div>
-		<a href="https://www.google.fr/?q=Number+{{i+1}}" target="_blank" rel="nofollow noopener noreferrer">
-			<div class="picsum-img-wrapper">
-				<img [src]="img" alt="My image {{i + 1}} description" class="d-block w-80 m-auto mt-2 mb-5"  />
+		<a href="https://www.google.fr/?q=Number+{{i+1}}" target="_blank" rel="nofollow noopener noreferrer" > 
+			<div class="picsum-img-wrapper" >
+				<img [src]="img" alt="My image {{i + 1}} description" class="d-block w-80 m-auto mt-2 mb-5" id="image" />
 			</div>
 		</a>
 	</ng-template>
@@ -67,8 +67,12 @@
 </form>
 
 
-<div class="container row justify-content-center m-auto">
-  <div class="card mx-4 mt-5" style="width: 18rem" *ngFor="let array of arr2">
+<div  *ngIf="isLoading" style="text-align:center">
+  <loading-spinner></loading-spinner>
+</div>
+
+<div class="container row justify-content-center m-auto" >
+  <div class="card mx-4 mt-5" style="width: 18rem" *ngFor="let array of arr2" >
     <img 
       [src]="array.image"
  
@@ -90,9 +94,10 @@
           class="btn btn-primary "
         
           *ngIf="array.Quantity == 0; else groupButtons"
+
           (click)="addItem(array.id,'1','+',array.price)"
         >
-          Add
+          Add 
         </div>
         <ng-template #groupButtons>
           <div

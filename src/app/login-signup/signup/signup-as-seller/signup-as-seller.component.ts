@@ -30,7 +30,6 @@ export class SignupAsSellerComponent implements OnInit {
 
     this.authService.signup(email, password).subscribe(
       (resData) => {
-        console.log(resData);
         this.isLoading = false;
         this.router.navigate(['/home']);
       },

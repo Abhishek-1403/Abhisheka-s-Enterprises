@@ -1,281 +1,81 @@
-<div style= "background-color: burlywood;">
-<form
-  class="example pt-5 pb-5"
-  action="/action_page.php"
-  style="margin: auto; max-width: 700px;" 
-  id="form"
->
-  <div class="flex justify-content-center mt-3">
-    <input
-      type="text"
-      placeholder="Search.."
-      name="search2"
-      style="width: 22vw;height: 52px;"
-      list="searchbar"
-    />
+<div style="background-color: burlywood">
+  <form
+    class="example pt-5 pb-5"
+    action="/action_page.php"
+    style="margin: auto; max-width: 700px"
+    id="form"
+  >
+    <div class="flex justify-content-center mt-3">
+      <input
+        type="text"
+        placeholder="Search.."
+        name="search2"
+        style="width: 25vw; height: 52px; margin-left: 70px"
+        list="searchbar"
+      />
 
-    <datalist id="searchbar">
-        <option value="Love Mobile Center">
-        <option value="Noor Communication">
-        <option value="S N Communication">
-        <option value="Shiva genral Store">
-        <option value="Priyanka Mobile Center">
-        <option value="Aakash Trading Company">
-        <option value="Lakshami Enterprises">
-        <option value="Ravi Telecom">
-        <option value="Ganesh Electricle">
-        <option value="Rakesh  Electricle">
-        <option value="Rajdeep Mobile Hub">
-    </datalist>
+      <datalist id="searchbar">
+        <option value="Love Mobile Center"></option>
+        <option value="Noor Communication"></option>
+        <option value="S N Communication"></option>
+        <option value="Shiva genral Store"></option>
+        <option value="Priyanka Mobile Center"></option>
+        <option value="Aakash Trading Company"></option>
+        <option value="Lakshami Enterprises"></option>
+        <option value="Ravi Telecom"></option>
+        <option value="Ganesh Electricle"></option>
+        <option value="Rakesh  Electricle"></option>
+        <option value="Rajdeep Mobile Hub"></option>
+      </datalist>
 
-    <button type="submit">
-      <fa-icon
-        style="font-size: 20px"
-        [icon]="faSearchengin"
-        class=""
-      ></fa-icon>
-    </button>
-  </div>
-</form>
+      <button type="submit">
+        <fa-icon
+          style="font-size: 20px"
+          [icon]="faSearchengin"
+          class=""
+        ></fa-icon>
+      </button>
+    </div>
+  </form>
 </div>
 
-<div style="background-color: cyan;">
-    <div style="background-color: antiquewhite;" class="mt-1 pt-4 pb-2" id="xy">
-        <div class="xy pt-1 relative pb-1 px-2 ">
-            <h5 style="display: flex; justify-content: space-between;">
-                <h4>ShopName: Love Mobile Center</h4>
 
-                <b>Category: <span>MobilePhones</span></b>
-                <b>Rating:3.6 * </b>
-                <button class="btn btn-info" (click)="gotoHome()">
-                    <h5>
-                        See shop Products
-                    </h5>
+<div  *ngIf="isLoading" style="text-align:center">
+    <loading-spinner></loading-spinner>
+</div>
 
-                </button>
+<div style="background-color: cyan"  *ngIf="!isLoading">
+  <div
+    style="background-color: antiquewhite"
+    class="mt-1 pt-4 pb-2"
+    id="xy"
+    *ngFor="let si of arr"
+  >
+    <div class="xy pt-1 relative pb-1 px-2">
+      <h5 style="display: flex; justify-content: space-between">
+        <h4 id="h5">ShopName: {{ si.name }}</h4>
 
-            </h5>
-        </div>
+        <b
+          >Category: <span>{{ si.category }}</span></b
+        >
+        <b
+        >Rating:
+          <ngb-rating [(rate)]="si.rating" [max]="5">
+            <ng-template let-fill="fill" let-index="index">
+              <i
+                class="bi-star{{ fill === 100 ? '-fill' : '' }}"
+                [class.filled]="fill === 100"
+                [class.low]="index < 1"
+              ></i>
+            </ng-template>
+          </ngb-rating>
+          <hr />
+          <pre>Overall Rating: <b>{{si.rating}}</b></pre>
+        </b>
+        <button class="btn btn-info" id="uniqueBtn" (click)="gotoHome()">
+          <h5>See shop Products</h5>
+        </button>
+      </h5>
     </div>
-    <div style="background-color: antiquewhite;" class="mt-1 pt-4 pb-2" id="xy">
-        <div class="xy pt-1 relative pb-1 px-2 ">
-            <h5 style="display: flex; justify-content: space-between;" id="h5">
-                <h4 id="h5">ShopName: Noor Communication</h4>
-
-                <b>Category: <span>MobilePhones</span></b>
-                <b>Rating:4.2 * </b>
-                <button class="btn btn-info" (click)="gotoHome()">
-                    <h5>
-                        See shop Products
-                    </h5>
-
-                </button>
-
-            </h5>
-        </div>
-    </div>
-    <div style="background-color: antiquewhite;" class="mt-1 pt-4 pb-2" id="xy">
-        <div class="xy pt-1 relative pb-1 px-2 ">
-            <h5 style="display: flex; justify-content: space-between;" id="h5">
-                <h4 id="h5">ShopName: S N Communication</h4>
-
-                <b>Category: <span>MobilePhones</span></b>
-                <b>Rating:3.8 * </b>
-                <button class="btn btn-info" (click)="gotoHome()">
-                    <h5>
-                        See shop Products
-                    </h5>
-
-                </button>
-
-            </h5>
-        </div>
-    </div>
-    <div style="background-color: antiquewhite;" class="mt-1 pt-4 pb-2" id="xy">
-        <div class="xy pt-1 relative pb-1 px-2 ">
-            <h5 style="display: flex; justify-content: space-between; " id="h5">
-                <h4 id="h5">ShopName: Aakash Trading Company</h4>
-
-                <b>Category: <span>Grocerry</span></b>
-                <b>Rating:3.9 * </b>
-                <button class="btn btn-info" (click)="gotoHome()">
-                    <h5>
-                        See shop Products
-                    </h5>
-
-                </button>
-
-            </h5>
-        </div>
-    </div>
-    <div style="background-color: antiquewhite;" class="mt-1 pt-4 pb-2" id="xy">
-        <div class="xy pt-1 relative pb-1 px-2 ">
-            <h5 style="display: flex; justify-content: space-between;" id="h5">
-                <h4 id="h5">ShopName: jai Balaji Pipe Udog</h4>
-
-                <b>Category: <span>Pipes And Steel</span></b>
-                <b>Rating:3.6 * </b>
-                <button class="btn btn-info" (click)="gotoHome()">
-                    <h5>
-                        See shop Products
-                    </h5>
-
-                </button>
-
-            </h5>
-        </div>
-    </div>
-    <div style="background-color: antiquewhite;" class="mt-1 pt-4 pb-2" id="xy">
-        <div class="xy pt-1 relative pb-1 px-2 ">
-            <h5 style="display: flex; justify-content: space-between;">
-                <h4>ShopName: Shiva Gneral Store</h4>
-
-                <b>Category: <span>Grocerry</span></b>
-                <b>Rating:3.8 * </b>
-                <button class="btn btn-info" (click)="gotoHome()">
-                    <h5>
-                        See shop Products
-                    </h5>
-
-                </button>
-
-            </h5>
-        </div>
-    </div>
-    <div style="background-color: antiquewhite;" class="mt-1 pt-4 pb-2" id="xy">
-        <div class="xy pt-1 relative pb-1 px-2 ">
-            <h5 style="display: flex; justify-content: space-between;">
-                <h4>ShopName: Kundan Biryani</h4>
-
-                <b>Category: <span>Foods and Grades</span></b>
-                <b>Rating:4.0 * </b>
-                <button class="btn btn-info" (click)="gotoHome()">
-                    <h5>
-                        See shop Products
-                    </h5>
-
-                </button>
-
-            </h5>
-        </div>
-    </div>
-    <div style="background-color: antiquewhite;" class="mt-1 pt-4 pb-2" id="xy">
-        <div class="xy pt-1 relative pb-1 px-2 ">
-            <h5 style="display: flex; justify-content: space-between;">
-                <h4>ShopName:Priyanka Moblie Center </h4>
-
-                <b>Category: <span>Moblies and Electronics</span></b>
-                <b>Rating:4.5 * </b>
-                <button class="btn btn-info" (click)="gotoHome()">
-                    <h5>
-                        See shop Products
-                    </h5>
-
-                </button>
-
-            </h5>
-        </div>
-    </div>
-    <div style="background-color: antiquewhite;" class="mt-1 pt-4 pb-2" id="xy">
-        <div class="xy pt-1 relative pb-1 px-2 ">
-            <h5 style="display: flex; justify-content: space-between;">
-                <h4>ShopName: Lakshmi Enterprises</h4>
-
-                <b>Category: <span>Television And Electronics</span></b>
-                <b>Rating:2.3 * </b>
-                <button class="btn btn-info" (click)="gotoHome()">
-                    <h5>
-                        See shop Products
-                    </h5>
-
-                </button>
-
-            </h5>
-        </div>
-    </div>
-    <div style="background-color: antiquewhite;" class="mt-1 pt-4 pb-2" id="xy">
-        <div class="xy pt-1 relative pb-1 px-2 ">
-            <h5 style="display: flex; justify-content: space-between;">
-                <h4>ShopName: Aditi Enterprises</h4>
-
-                <b>Category: <span> Television And Electronics</span></b>
-                <b>Rating:2.5 * </b>
-                <button class="btn btn-info" (click)="gotoHome()">
-                    <h5>
-                        See shop Products
-                    </h5>
-
-                </button>
-
-            </h5>
-        </div>
-    </div>
-    <div style="background-color: antiquewhite;" class="mt-1 pt-4 pb-2" id="xy">
-        <div class="xy pt-1 relative pb-1 px-2 ">
-            <h5 style="display: flex; justify-content: space-between;">
-                <h4>ShopName: Ravi Telecom.</h4>
-
-                <b>Category: <span>MobilePhones</span></b>
-                <b>Rating:3.6 * </b>
-                <button class="btn btn-info" (click)="gotoHome()">
-                    <h5>
-                        See shop Products
-                    </h5>
-
-                </button>
-
-            </h5>
-        </div>
-    </div>
-    <div style="background-color: antiquewhite;" class="mt-1 pt-4 pb-2" id="xy">
-        <div class="xy pt-1 relative pb-1 px-2 ">
-            <h5 style="display: flex; justify-content: space-between;">
-                <h4>ShopName: Rakesh Electricle</h4>
-
-                <b>Category: <span>Electronics</span></b>
-                <b>Rating:3.8 * </b>
-                <button class="btn btn-info" (click)="gotoHome()">
-                    <h5>
-                        See shop Products
-                    </h5>
-
-                </button>
-
-            </h5>
-        </div>
-    </div>
-    <div style="background-color: antiquewhite;" class="mt-1 pt-4 pb-2" id="xy">
-        <div class="xy pt-1 relative pb-1 px-2 ">
-            <h5 style="display: flex; justify-content: space-between;">
-                <h4>ShopName: Ganesh Electricle</h4>
-
-                <b>Category: <span>Electronics</span></b>
-                <b>Rating:4.3 * </b>
-                <button class="btn btn-info" (click)="gotoHome()">
-                    <h5>
-                        See shop Products
-                    </h5>
-
-                </button>
-
-            </h5>
-        </div>
-    </div>
-    <div style="background-color: antiquewhite;" class="mt-1 pt-4 pb-2" id="xy">
-        <div class="xy pt-1 relative pb-1 px-2 ">
-            <h5 style="display: flex; justify-content: space-between;">
-                <h4>ShopName: Rajdeep mobile Hub</h4>
-
-                <b>Category: <span>MobilePhones</span></b>
-                <b>Rating:4.0 * </b>
-                <button class="btn btn-info" (click)="gotoHome()">
-                    <h5>
-                        See shop Products
-                    </h5>
-
-                </button>
-
-            </h5>
-        </div>
-    </div>
+  </div>
 </div>

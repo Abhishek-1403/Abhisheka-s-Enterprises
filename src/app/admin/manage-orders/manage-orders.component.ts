@@ -24,7 +24,7 @@ export class ManageOrdersComponent implements OnInit {
     status:string
   }[] =[];
 
-
+  isLoading=false;
 
   constructor(private http:HttpClient) { 
    
@@ -35,16 +35,18 @@ export class ManageOrdersComponent implements OnInit {
   }
 
   getOrderDetailsFromFirebase(){
-   
+   this.isLoading=true;
     return this.http.get(this.firebaseStorageUrl).subscribe(
       (response: any) => {
         Object.keys(response).forEach((obj) => {
           this.cartArray.push(response[obj]);
           
         });
-        console.log(this.cartArray);
+        this.isLoading=false;
       },
-      (err: any) => console.log(err)   
+      (err: any) =>{ 
+        this.isLoading=false;
+        console.log(err);}   
     );
 
    

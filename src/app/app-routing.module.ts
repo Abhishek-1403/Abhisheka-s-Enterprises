@@ -13,7 +13,7 @@ import { SingupAsPurchaserComponent } from './login-signup/signup/singup-as-purc
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'listofitems', component: ListOfItemsComponent },
+  { path: 'shop-partners', component: ListOfItemsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
 

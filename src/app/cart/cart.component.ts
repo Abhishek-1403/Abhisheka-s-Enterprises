@@ -103,7 +103,6 @@ export class CartComponent implements OnInit {
   }
 
   addToFirebase(form: NgForm) {
-    console.log('addTo FIrebase is called..');
     const name = form.value.name;
     const cardNo = form.value.cardNumber;
     const totalItem = this.totalItem;

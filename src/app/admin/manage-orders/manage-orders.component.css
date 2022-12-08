@@ -6,11 +6,13 @@
     text-align: left;
 }
 #table{
-    width:device-width;
+    width:100vw;
     border-spacing: 2px,20vw;
     border-collapse: separate;
     border: 5px solid yellowgreen;
+    overflow: auto;
 }
 #h5{
-    font-size: 1vw;
+    font-size: 16px;
+    
 }
